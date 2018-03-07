@@ -300,5 +300,7 @@ label start:
             menu walkoutmenu2:
                 "Go to the targ.":
                     jump targ
+                "Go next to the church." if not jp2 and jesus:
+                    jump church
                 "Go to Biedronka.":
                     jump biedronka
