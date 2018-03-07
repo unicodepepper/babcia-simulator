@@ -1,6 +1,7 @@
 define b = Character("Babcia", color="#2A52BE")
 define d = Character("Dziadek", color="#85C1E9")
 define p = Character("[player_name]", color="#F39C12")
+define k = Character("Ksiądz Przemek", color="#292929")
 default hajs = False
 default swiezak1 = False
 default swiezak2 = False
@@ -204,8 +205,33 @@ label start:
         label targ:
             # ay lmao come up with something you idiot
         label church:
-            
-
+            "It's an old church that you vaguely remember from your childhood. {w}You probably used to go there evvery Sunday with your babcia and dziadek."
+            "As you walk by, a man, clearly some kind of priest, approaches you with a smile."
+            k "Hello! Hm... I think I remember your face, may you remind me who are you?..."
+			"He truly looks buried deep in thoughts."
+			"You explain you're Babcia Halinka's grandchild. {w}The village's so small that he easily remembers who are you talking about."
+			k "Ah, wonderful! The last time I saw you was years, years ago... You were still in diapers!"
+			k "Children... They grow up so quick..."
+			"You smile politely and explain you need to go on your small quest of getting veggies for dinner."
+			"Ksiądz Przemek, however, suggests that you check out the church first."
+			"As he says, it's been refreshed and looks much different on the inside."
+			"Seems like he really wants to show it off to you. Maybe he was the one to design the interior?"
+			
+			"You walk in and you're immediately stunned by what you see."
+			"Beautiful columns, wide naves, colorful light shining through stained glass..."
+			"The church you remember looked way different and way more modest."
+			k "Feel free to walk around, the next mass won't start until thirty minutes from now."
+			"After saying this, he seems to be thinking hard again."
+			"He pulls out two paper cards out of hiw pocket.
+			k "Right, I would like you to take this. Choose one!"
+			"It's pictures of Jesus Christ and Pope John Paul II."
+			"Which one will you choose?"
+			menu picture:
+				"Jesus Christ.":
+					jump jesus
+				"Pope John Paul II.":
+					jump jp2
+			
 
 
 
