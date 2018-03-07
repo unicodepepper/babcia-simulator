@@ -266,11 +266,21 @@ label start:
             "You snicker to yourself."
             "No offense, you go to this store a lot. It's a fine one."
             "The essence of Poland, basically."
-            "You approach it and gaze in awe.{w}Or... No, not really."
+            "You approach it and gaze in awe.{w}Or... {w}No, not really."
             "The slide doors open in front of you, like gates to heaven. Sorta."
             "You think to yourself that maybe it's time to stop this attitude. Wow. How rude, right?"
                 # here should go a pic of biedra aisles
-            "
+            "The store isn't too big but it's got a lot of things all around."
+			"You swiftly move among the aisles and wander around looking for veggies."
+			"Out of sudden, a guy starts dancing wild moves right in front of the sweets aisle. {w}Weird music plays along from his tiny speaker, too."
+				# here kanikuły start playing and kacper shows up
+			"What the {i}hell{/i}?"
+			"You decide to quickly retreat from this wild man."
+				# music and kacper are g o n e
+				# aisles turn to veggies
+			
+						
+						
                                 
 ##################################################################
 
