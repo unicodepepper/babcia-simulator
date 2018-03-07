@@ -126,7 +126,7 @@ label start:
                 jump discoverdziadek
         
     label discoverswiezak:
-        "It's a well-known Polish merchandise from Biedronka. {w}They sold a ton of them. {w}A literal ton. {w}{size=9}Probably.{/size}"
+        "It's a well-known Polish merchandise from Biedronka. {w}They sold a ton of them. {w}A literal ton. {w}{size=12}Probably.{/size}"
         "Now that you've already found it, you walk around and see..."
         $ swiezak1 = True
     jump discoverdziadek
@@ -146,7 +146,6 @@ label start:
                 $counter+=1
                 jump bother
             else:
-
                 jump secret
                 
         "Leave the old man alone, he's surely tired.":
@@ -172,7 +171,7 @@ label start:
 ##################################################################
         
     label kitchen1:
-	b "There you are, darling! {w}Sit down please, the food is getting cold!"
+        b "There you are, darling! {w}Sit down please, the food is getting cold!"
         "It's so lovely you have such a babcia."
         "You sit by the table and munch on some scrambled eggs she prepared for you beforehand."
         b "[player_name], do you think you could go to the targ and get me some fresh vegetables for dinner?"
@@ -183,17 +182,18 @@ label start:
         "Babcia hands you 10 złoty and pats your hand vigorously. {w}As much as an old lady can, at least."
         "You finish your food quickly and help her wash the dishes, like a good grandchild would."
         b "See you [player_name]! Don't forget about the groceries!"
-		jump walkout
+        jump walkout
         
 ##################################################################
         
-    label walkout
+    label walkout:
         "It's a wonderful sunny day."
         "Everyone's obviously at church, besides the ones who are at the targ."
         "These people will probably go to the mass in the evening."
         "You look around the small village your babcia lives in and you notice three places you can go to..."
         "Where do you want to go to first?"
-        menu walkout:
+        
+        menu walkoutmenu:
             "Go to the targ.":
                 jump targ
             "Go next to the church.":
@@ -204,68 +204,80 @@ label start:
 ##################################################################
 
         label targ:
-		# ay lmao come up with something you idiot
-	label church:
-		"It's an old church that you vaguely remember from your childhood. {w}You probably used to go there evvery Sunday with your babcia and dziadek."
-		"As you walk by, a man, clearly some kind of priest, approaches you with a smile."
-		k "Hello! Hm... I think I remember your face, may you remind me who are you?..."
-		"He truly looks buried deep in thoughts."
-		"You explain you're Babcia Halinka's grandchild. {w}The village's so small that he easily remembers who are you talking about."
-		k "Ah, wonderful! The last time I saw you was years, years ago... You were still in diapers!"
-		k "Children... They grow up so quick..."
-		"You smile politely and explain you need to go on your small quest of getting veggies for dinner."
-		"Ksiądz Przemek, however, suggests that you check out the church first."
-		"As he says, it's been refreshed and looks much different on the inside."
-		"Seems like he really wants to show it off to you. Maybe he was the one to design the interior?"
-			
-		"You walk in and you're immediately stunned by what you see."
-		"Beautiful columns, wide naves, colorful light shining through stained glass..."
-		"The church you remember looked way different and way more modest."
-		k "Feel free to walk around, the next mass won't start until thirty minutes from now."
-		"After saying this, he seems to be thinking hard again."
-		"He pulls out two paper cards out of hiw pocket.
-		k "Right, I would like you to take this. Choose one!"
-		"It's pictures of Jesus Christ and Pope John Paul II."
-		"Which one will you choose?"
-		menu picture:
-			"Jesus Christ.":
-				jump jesus
-			"Pope John Paul II.":
-				jump jp2
-				
-		label jesus:
-			"You've obtained a picture!"
-			"Your babcia will surely love it."
-			$ jesus = True
-		jump walkout2
-		
-		label jp2:
-			"You've obtained a picture!"
-			"Your babcia will surely love it."
-			$ jp2 = True
-		jump walkout2
-		
+        # ay lmao come up with something you idiot
+        
+        
+        
+        label church:
+                # church from afar pic
+            "It's an old church that you vaguely remember from your childhood. {w}You probably used to go there every Sunday with your babcia and dziadek."
+            "As you walk by, a man, clearly some kind of priest, approaches you with a smile."
+                # show ksiądz as well, to the left
+            k "Hello! Hm... I think I remember your face, may you remind me who are you?..."
+            "He truly looks like he's buried deep in thoughts."
+            "You explain you're Babcia Halinka's grandchild. {w}The village's so small that he easily remembers who are you talking about."
+            k "Ah, wonderful! The last time I saw you was years, years ago... You were still in diapers!"
+            k "Children... They grow up so quick..."
+            "You smile politely and explain you need to go on your small quest of getting veggies for dinner."
+            "Ksiądz Przemek, however, suggests that you check out the church first."
+            "As he says, it's been refreshed and looks much different on the inside."
+            "Seems like he really wants to show it off to you. Maybe he was the one to design the interior?"
+                # church on the inside
+            "You walk in and you're immediately stunned by what you see."
+                # column pic
+            "Beautiful columns..."
+                # some kinda center pic
+            "Wide naves..."
+                # a close up on witraże?
+            "Colorful light shining through stained glass..."
+                # back to the first inside pic
+            "The church you remember looked way different and way more modest."
+            k "Feel free to walk around, the next mass won't start until thirty minutes from now."
+            "After saying this, he seems to be thinking hard again."
+            "He pulls out two paper cards out of his pocket."
+            k "Right, I would like you to take this. Choose one!"
+            "It's pictures of Jesus Christ and Pope John Paul II."
+            "Which one will you choose?"
+            menu picture:
+                "Jesus Christ.":
+                    jump jesus
+                "Pope John Paul II.":
+                    jump jp2
+                                                            
+                    label jesus:
+                            # a pic of jesus
+                        "You've obtained a picture!"
+                        "Your babcia will surely love it."
+                        $ jesus = True
+                        jump walkout2
+                            
+                    label jp2:
+                            # a pic of jp2
+                        "You've obtained a picture!"
+                        "Your babcia will surely love it."
+                        $ jp2 = True
+                        jump walkout2
+                        
+                        
+                        
+        label biedronka:
+                # a pic of biedra from the outside
+            p "Here we are, the {i}best{/i} Polish store... Hah..."
+            "You snicker to yourself."
+            "No offense, you go to this store a lot. It's a fine one."
+            "The essence of Poland, basically."
+            "You approach it and gaze in awe.{w}Or... No, not really."
+            "The slide doors open in front of you, like gates to heaven. Sorta."
+            "You think to yourself that maybe it's time to stop this attitude. Wow. How rude, right?"
+                # here should go a pic of biedra aisles
+            "
+                                
 ##################################################################
 
-	label walkout2:
-	"Where do you want to go now?"
-		menu walkout:
-            "Go to the targ." if jesus:
-                pass
-            "Go next to the church.":
-                jump church
-            "Go to Biedronka.":
-                jump biedronka
-			
-			
-
-
-
-           
-#        b "[player_name], do you think you could go to targ and get me some fresh vegetables for dinner?"
- #       "It would be shameful to make your babcia run errands herself when you know she's old like that."
-  #      "You nod your head and take a sip of kompot."
-   #     b "I would need you to buy a kilo of potatoes and three onions."
-    #    b "Helenka, my dear friend, should still be out there with her stall. {w}I think you'll find her easily. {w}If not, she will wave at you. I bet she remembers you!"
-     #   "Babcia hands you 10 złoty and pats your hand vigorously. {w}As much as an old lady can, at least."
- 
+                    label walkout2:
+                        "Where do you want to go now?"
+                        menu walkoutmenu2:
+                            "Go to the targ.":
+                                jump targ
+                            "Go to Biedronka.":
+                                jump biedronka
