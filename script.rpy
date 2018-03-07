@@ -268,7 +268,7 @@ label start:
             "You snicker to yourself."
             "No offense, you go to this store a lot. It's a fine one."
             "The essence of Poland, basically."
-            "You approach it and gaze in awe.{w}Or... {w}No, not really."
+            "You approach it and gaze in awe. {w}Or... {w}No, not really."
             "The slide doors open in front of you, like gates to heaven. Sorta."
             "You think to yourself that maybe it's time to stop this attitude. Wow. How rude, right?"
                 # here should go a pic of biedra aisles
