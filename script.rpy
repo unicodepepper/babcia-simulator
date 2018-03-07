@@ -172,7 +172,43 @@ label start:
         b "There you are, darling! {w}Sit down please, the food is getting cold!"
         "It's so lovely you have such a babcia."
         "You sit by the table and munch on some scrambled eggs she prepared for you beforehand."
+        b "[player_name], do you think you could go to the targ and get me some fresh vegetables for dinner?"
+        "It would be shameful to make your babcia run errands herself when you know she's old like that."
+        "You nod your head and take a sip of kompot."
+        b "I would need you to buy a kilo of potatoes and three onions."
+        b "Helenka, my dear friend, should still be out there with her stall. {w}I think you'll find her easily. {w}If not, she will wave at you. I bet she remembers you!"
+        "Babcia hands you 10 złoty and pats your hand vigorously. {w}As much as an old lady can, at least."
+        "You finish your food quickly and help her wash the dishes, like a good grandchild would."
+        b "See you [player_name]! Don't forget about the groceries!"
         if hajs ==True:
+            jump walkout
+        
+##################################################################
+        
+    label walkout
+        "It's a wonderful sunny day."
+        "Everyone's obviously at church, besides the ones who are at the targ."
+        "These people will probably go to the mass in the evening."
+        "You look around the small village your babcia lives in and you notice three places you can go to..."
+        "Where do you want to go to first?"
+        menu walkout:
+            "Go to the targ.":
+                jump targ
+            "Go next to the church.":
+                jump church
+            "Go to Biedronka.":
+                jump biedronka
+                
+##################################################################
+
+        label targ:
+            # ay lmao come up with something you idiot
+        label church:
+            
+
+
+
+
             "yaaay"
         else:
             "naaay"
