@@ -3,6 +3,8 @@ define d = Character("Dziadek", color="#85C1E9")
 define p = Character("[player_name]", color="#F39C12")
 define k = Character("Ksiądz Przemek", color="#292929")
 default hajs = False
+default jesus = False
+default jp2 = False
 default swiezak1 = False
 default swiezak2 = False
 
@@ -230,13 +232,36 @@ label start:
 				jump jesus
 			"Pope John Paul II.":
 				jump jp2
+				
+		label jesus:
+			"You've obtained a picture!"
+			"Your babcia will surely love it."
+			$ jesus = True
+		jump walkout2
+		
+		label jp2:
+			"You've obtained a picture!"
+			"Your babcia will surely love it."
+			$ jp2 = True
+		jump walkout2
+		
+##################################################################
+
+	label walkout2:
+	"Where do you want to go now?"
+		menu walkout:
+            "Go to the targ." if jesus:
+                pass
+            "Go next to the church.":
+                jump church
+            "Go to Biedronka.":
+                jump biedronka
+			
 			
 
 
 
-            "yaaay"
-        else:
-            "naaay"
+           
 #        b "[player_name], do you think you could go to targ and get me some fresh vegetables for dinner?"
  #       "It would be shameful to make your babcia run errands herself when you know she's old like that."
   #      "You nod your head and take a sip of kompot."
