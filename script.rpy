@@ -1,7 +1,8 @@
+define p = Character("[player_name]", color="#F39C12")
 define b = Character("Babcia", color="#2A52BE")
 define d = Character("Dziadek", color="#85C1E9")
-define p = Character("[player_name]", color="#F39C12")
 define k = Character("Ksiądz Przemek", color="#292929")
+define kasa = Character("Kasjerka Andżelika", color="#FF0080")
 default hajs = False
 default jesus = False
 default jp2 = False
@@ -16,7 +17,7 @@ label start:
  
     scene bg 1
     
-    "It's a beautiful Sunday morning."
+    "It's a beautiful Sunday morning. You're at your {i}babcia{/i}'s house."
     "You wake up to the sunrays falling on your face from beneath white, lace curtains."
     "It's cozy and warm under the thick quilt decorated with floral patterns. {w}You don't really feel like getting up."
     
@@ -132,7 +133,7 @@ label start:
     jump discoverdziadek
         
     label discoverdziadek:
-        "Your favourite grandpa!"
+        "Your favourite {i}dziadek{/i}!"
         "He's snoring loudly. {w}Hopefully he's sleeping well."
         "It would be a shame if {i}someone{/i} was to interrupt him."
     $counter=0
@@ -206,12 +207,13 @@ label start:
         label targ:
         # ay lmao come up with something you idiot
         
+        jump walkout2
         
         
         label church:
                 # church from afar pic
             "It's an old church that you vaguely remember from your childhood. {w}You probably used to go there every Sunday with your babcia and dziadek."
-            "As you walk by, a man, clearly some kind of priest, approaches you with a smile."
+            "As you walk by, a man, clearly some kind of {i}ksiądz{/i}, approaches you with a smile."
                 # show ksiądz as well, to the left
             k "Hello! Hm... I think I remember your face, may you remind me who are you?..."
             "He truly looks like he's buried deep in thoughts."
@@ -271,23 +273,32 @@ label start:
             "You think to yourself that maybe it's time to stop this attitude. Wow. How rude, right?"
                 # here should go a pic of biedra aisles
             "The store isn't too big but it's got a lot of things all around."
-			"You swiftly move among the aisles and wander around looking for veggies."
-			"Out of sudden, a guy starts dancing wild moves right in front of the sweets aisle. {w}Weird music plays along from his tiny speaker, too."
-				# here kanikuły start playing and kacper shows up
-			"What the {i}hell{/i}?"
-			"You decide to quickly retreat from this wild man."
-				# music and kacper are g o n e
-				# aisles turn to veggies
-			
-						
-						
-                                
+            "You swiftly move among the aisles and wander around looking for veggies."
+            "Out of sudden, a guy starts dancing wild moves right in front of the sweets aisle. {w}Weird music plays along from his tiny speaker, too."
+                # here kanikuły start playing and kacper shows up
+            "What the {i}hell{/i}?"
+            "You decide to quickly retreat from this wild man."
+                # music and kacper are g o n e
+                # aisles turn to veggies
+            "Walking down the aisles you finally spot the veggie stall."
+            "Sure they're a bit more expensive than on the targ, but who cares?"
+            "Veggies are veggies."
+            
+            
+            "You grab just how much you need and walk to the {i}kasjerka{/i}."
+            "She looks pretty tired with life."
+            "Moving your veggies slowly, she eventually gets it all done and prints out the receipt."
+            kasa "Oh, right."
+            kasa "You paid enough to get a świeżak. Here you go."
+            "She takes a świeżak out from behind the counter and puts it on the till."
+            "Another one for you! {w}That's pretty cool, right?"
+                
 ##################################################################
 
-                    label walkout2:
-                        "Where do you want to go now?"
-                        menu walkoutmenu2:
-                            "Go to the targ.":
-                                jump targ
-                            "Go to Biedronka.":
-                                jump biedronka
+        label walkout2:
+            "Where do you want to go now?"
+            menu walkoutmenu2:
+                "Go to the targ.":
+                    jump targ
+                "Go to Biedronka.":
+                    jump biedronka
