@@ -368,7 +368,7 @@ label start:
                 "Go to Biedronka." if hajs:
                     pass
                     jump biedronka
-                "Go home." 
+                "Go home.":
                     if cola = True:
                         jump kitchen3
                     else:
