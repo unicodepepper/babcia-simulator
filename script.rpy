@@ -375,6 +375,9 @@ label start:
                     
 ##################################################################
 
+
+
+        
     label kitchen2:
         scene kitchen1
         b "Welcome back, darling! Is it hot outside?"
@@ -392,39 +395,40 @@ label start:
             "Maybe it's just that it's an unhealthy drink and she really wanted to take care of you."
             "You feel kinda ashamed and bummed."
             "Her expression is still sort of disappointed when she peels the potatoes."
-        return
+            return
             
-        elseif biedra:
+        elif biedra:
             "Her smile slowly degrades into a disgusted emotion."
             b "Did you go to the targ for sure like I asked you to?"
-                menu:
-                    "Yes, I did!"
+            menu:
+                "Yes, I did!":
                     jump lie
             
-                    "Well..."
+                "Well...":
                     jump truth
             
-                label lie:
-                    "You vigorously nod your head and say you in fact, did go to the targ."
-                    "Your babcia, however, picks an onion and smells it. It seems weird to you."
-                    "Not until seconds later do you remember babcias have brilliant sense for spotting supermarket products."
-                    "She can feel the difference."
-                    "She knows you lied."
-                    "You nasty, little liar."
-                return
+                    label lie:
+                        "You vigorously nod your head and say you in fact, did go to the targ."
+                        "Your babcia, however, picks an onion and smells it. It seems weird to you."
+                        "Not until seconds later do you remember babcias have brilliant sense for spotting supermarket products."
+                        "She can feel the difference."
+                        "She knows you lied."
+                        "You nasty, little liar."
+                    return
             
-                label truth:
-                    "You feel a bit ashamed that you were too lazy to go to the targ."
-                    "There's no point in trying to wiggle out of this lie, so you roll with speaking the truth."
-                    "Babcia strangely knows you feel bad for having done that."
-                    b "I'm disappointed that you didn't go for the fresh veggies, but for the ones sprayed with pesticides."
-                    b "Listen, [player_name]. I love you either way, I really do, and I'm glad you told me the truth."
-                    b "But please, next time listen to me, alright?"
-                    "She smiles a little bit but you can tell she's still hurt."
-                    "What's done is done. You can't fix the past."
-                return
+                    label truth:
+                        "You feel a bit ashamed that you were too lazy to go to the targ."
+                        "There's no point in trying to wiggle out of this lie, so you roll with speaking the truth."
+                        "Babcia strangely knows you feel bad for having done that."
+                        b "I'm disappointed that you didn't go for the fresh veggies, but for the ones sprayed with pesticides."
+                        b "Listen, [player_name]. I love you either way, I really do, and I'm glad you told me the truth."
+                        b "But please, next time listen to me, alright?"
+                        "She smiles a little bit but you can tell she's still hurt."
+                        "What's done is done. You can't fix the past."
+                    return
     
-                else:
-                    "The veggies are exactly what she asked for. She happily grates the potatoes and dices the onion."
-                    "What might she be cooking?..."
+        else:
+            "The veggies are exactly what she asked for. She happily grates the potatoes and dices the onion."
+            "What might she be cooking?..."
+        return
                     
