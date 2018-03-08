@@ -12,6 +12,7 @@ transform rightish:
     yalign 0.35
 
 default hajs = False
+default targdone = False
 default jesus = False
 default jp2 = False
 default swiezak1 = False
@@ -237,7 +238,10 @@ label start:
 ##################################################################
 
         label targ:
+            scene targ1
+            with fade
         # ay lmao come up with something you idiot
+            $ targdone = True
         jump walkout2
         
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -263,9 +267,9 @@ label start:
             "Beautiful columns..."
             scene church3
             "Wide naves..."
-                # a close up on witraże?
+            scene church4
             "Colorful light shining through stained glass..."
-                # back to the first inside pic
+            scene church1
             "The church you remember looked way different and way more modest."
             k "Feel free to walk around, the next mass won't start until thirty minutes from now."
             "After saying this, he seems to be thinking hard again."
@@ -275,6 +279,7 @@ label start:
             show jp2 at rightish
             "It's pictures of Jesus Christ and Pope John Paul II."
             "Which one will you choose?"
+            
             menu picture:
                 "Jesus Christ.":
                     jump jesus
@@ -325,10 +330,15 @@ label start:
             "You grab just how much you need and walk to the {i}kasjerka{/i}."
             "She looks pretty tired with life."
             "Moving your veggies slowly, she eventually gets it all done and prints out the receipt."
-            kasa "Oh, right."
-            kasa "You paid enough to get a świeżak. Here you go."
-            "She takes a świeżak out from behind the counter and puts it on the till."
-            "Another one for you! {w}That's pretty cool, right?"
+            if hajs ==True:
+                kasa "Oh, right."
+                kasa "You paid enough to get a świeżak. Here you go."
+                "She takes a świeżak out from behind the counter and puts it on the till."
+                "Another one for you! {w}That's pretty cool, right?"
+            else:
+                kasa "Thank you for shopping in Biedronka, or something."
+                "You shrug and walk out with your brand new świeżak. {w}And groceries. {w}And a bottle of unhealthy fizzy drink."
+            jump walkout2
                 
 ##################################################################
 
@@ -338,10 +348,14 @@ label start:
             hide jesus
             "Where do you want to go now?"
             menu walkoutmenu2:
-                "Go to the targ.":
+                "Go to the targ." if not hajs:
+                        pass
                     jump targ
-                "Go next to the church." if not (jp2 or jesus):
-                    pass
+                "Go next to the church." if not (jp2 or jesus or hajs):
+                        pass
                     jump church
-                "Go to Biedronka.":
+                "Go to Biedronka." if not hajs:
+                        pass
                     jump biedronka
+                "Go home." if (hajs or targdone):
+                    jump kitchen1
