@@ -357,5 +357,5 @@ label start:
                 "Go to Biedronka." if hajs:
                     pass
                     jump biedronka
-                "Go home." if (hajs or targdone):
+                "Go home.":
                     jump kitchen1
