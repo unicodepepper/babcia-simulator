@@ -41,7 +41,7 @@ label start:
         
     p "Ah, right. It's [player_name]."
     
-##################################################################
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     
     "Minutes pass before you hear someone call you."
     
@@ -52,7 +52,7 @@ label start:
     b "I hope you slept well."
     b "You look thirsty!{w}\nWould you like some kompot, [player_name]?"
     
-########## kompot menu ###########################################
+########## KOMPOT MENU ###########################################
 
     menu:
 
@@ -65,7 +65,7 @@ label start:
         "...what is this?":
             jump questionkompot
             
-##################################################################
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
     label acceptkompot:
         b "There you go darling! {w}I made it just for you."
@@ -85,7 +85,7 @@ label start:
         b "Here you go, enjoy this summer drink."
         jump getkompot
         
-##################################################################
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
     label getkompot:
     
@@ -104,12 +104,12 @@ label start:
     hide kompocik 1
     with dissolve
 
-##################################################################
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
     "You're left alone, sitting on bed, still hazed from a nice sleep."
     "What should you do?"
     
-######## get kompot menu #########################################
+######## GET KOMPOT MENU #########################################
     
     menu:
         
@@ -125,11 +125,15 @@ label start:
         "You dress up swiftly, put on fuzzy slippers and walk over to your babcia."
         jump kitchen1
         
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+        
     label theroom:
         "You decide to get up and look around the room. {w}It strangely reminds you of communism."
         scene room2
         with fade
         "What do you want to do?"
+        
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # #
         
         menu:
             "Check out the thing behind the couch; there's something green peeking out from behind of it.":
@@ -137,6 +141,8 @@ label start:
                     
             "Walk over to your dziadek who's asleep in the rocking chair.":
                 jump discoverdziadek
+                
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # #
         
     label discoverswiezak:
         scene couchview
@@ -145,6 +151,8 @@ label start:
         "Now that you've already found it, you walk around and see..."
         $ swiezak1 = True
     jump discoverdziadek
+    
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # #    
         
     label discoverdziadek:
         scene dziadekbg
@@ -155,7 +163,7 @@ label start:
     $counter=0
     jump bothermenu
     
-################# bother menu ####################################
+################# BOTHER MENU ####################################
 
     menu bothermenu:
         "Bother him a tiny bit. Just a little bit.":
@@ -167,10 +175,14 @@ label start:
                 
         "Leave the old man alone, he's surely tired.":
             jump kitchen1
+            
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # #
                 
     label bother:
         "Nothing happened."
     jump bothermenu
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
     label secret:
         "Oh no... He's awoken."
@@ -228,6 +240,7 @@ label start:
         # ay lmao come up with something you idiot
         jump walkout2
         
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # #
         
         label church:
             scene church1
@@ -284,7 +297,7 @@ label start:
                         $ jp2 = True
                         jump walkout2
                         
-                        
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # #
                         
         label biedronka:
                 # a pic of biedra from the outside
