@@ -350,12 +350,12 @@ label start:
             menu walkoutmenu2:
                 "Go to the targ." if not hajs:
                     pass
-                jump targ
+                    jump targ
                 "Go next to the church." if not (jp2 or jesus or hajs):
                     pass
-                jump church
+                    jump church
                 "Go to Biedronka." if not hajs:
                     pass
-                jump biedronka
+                    jump biedronka
                 "Go home." if (hajs or targdone):
-                jump kitchen1
+                    jump kitchen1
