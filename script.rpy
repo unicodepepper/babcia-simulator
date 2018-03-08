@@ -337,7 +337,7 @@ label start:
                 "Another one for you! {w}That's pretty cool, right?"
             else:
                 kasa "Thank you for shopping in Biedronka, or something."
-                "You shrug and walk out with your brand new świeżak. {w}And groceries. {w}And a bottle of unhealthy fizzy drink."
+                "You shrug and walk out with your groceries. {w}And a bottle of unhealthy fizzy drink."
             jump walkout2
                 
 ##################################################################
@@ -348,13 +348,13 @@ label start:
             hide jesus
             "Where do you want to go now?"
             menu walkoutmenu2:
-                "Go to the targ." if not hajs:
+                "Go to the targ." if hajs:
                     pass
                     jump targ
                 "Go next to the church." if not (jp2 or jesus or hajs):
                     pass
                     jump church
-                "Go to Biedronka." if not hajs:
+                "Go to Biedronka." if hajs:
                     pass
                     jump biedronka
                 "Go home." if (hajs or targdone):
