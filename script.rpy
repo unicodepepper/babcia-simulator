@@ -334,7 +334,7 @@ label start:
                 "Take it.":
                     $ cola = True
                     pass
-                "You have kompot at home, you don't need cola."
+                "You have kompot at home, you don't need cola.":
                     pass
                          
             "You grab just how much you need and walk to the {i}kasjerka{/i}."
@@ -370,8 +370,8 @@ label start:
                     jump biedronka
                 "Go home." if cola = True:
                     jump kitchen3
-                        else:
-                        jump kitchen2
+                    else:
+                    jump kitchen2
                     
 ##################################################################
 
