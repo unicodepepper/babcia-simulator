@@ -15,6 +15,7 @@ default hajs = False
 default targdone = False
 default jesus = False
 default jp2 = False
+default cola = False
 default swiezak1 = False
 default swiezak2 = False
 
@@ -325,8 +326,17 @@ label start:
             "Walking down the aisles you finally spot the veggie stall."
             "Sure they're a bit more expensive than on the targ, but who cares?"
             "Veggies are veggies."
+                # show here the cola stall
+            "Oh, here's some nice drink..."
+            "You wonder if you should get some off brand cola or not."
             
-            
+                menu cola:
+                    "Take it.":
+                        $ cola = True
+                        pass
+                    "You have kompot at home, you don't need cola."
+                        pass
+                         
             "You grab just how much you need and walk to the {i}kasjerka{/i}."
             "She looks pretty tired with life."
             "Moving your veggies slowly, she eventually gets it all done and prints out the receipt."
@@ -335,6 +345,7 @@ label start:
                 kasa "You paid enough to get a świeżak. Here you go."
                 "She takes a świeżak out from behind the counter and puts it on the till."
                 "Another one for you! {w}That's pretty cool, right?"
+                $ swiezak2 = True
             else:
                 kasa "Thank you for shopping in Biedronka, or something."
                 "You shrug and walk out with your groceries. {w}And a bottle of unhealthy fizzy drink."
@@ -357,5 +368,17 @@ label start:
                 "Go to Biedronka." if hajs:
                     pass
                     jump biedronka
-                "Go home.":
-                    jump kitchen1
+                "Go home." if cola = True:
+                    jump kitchen3
+                    else:
+                    jump kitchen2
+                    
+##################################################################
+
+    label kitchen2:
+        scene kitchen1
+        "yay!
+        
+    label kitchen3:
+        scene kitchen1
+        "fuck you??"
