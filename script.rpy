@@ -277,6 +277,9 @@ label start:
             "After saying this, he seems to be thinking hard again."
             "He pulls out two paper cards out of his pocket."
             k "Right, I would like you to take this. Choose one!"
+            
+            ### button pics right here right here
+            
             show jesus at leftish
             show jp2 at rightish
             "It's pictures of Jesus Christ and Pope John Paul II."
@@ -287,6 +290,8 @@ label start:
                     jump jesus
                 "Pope John Paul II.":
                     jump jp2
+                    
+           ### button pics ending rrright here
                                                             
                     label jesus:
                         hide jp2
