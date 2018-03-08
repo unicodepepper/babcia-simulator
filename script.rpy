@@ -369,7 +369,7 @@ label start:
                     pass
                     jump biedronka
                 "Go home.":
-                    if cola = True:
+                    if cola:
                         jump kitchen3
                     else:
                         jump kitchen2
