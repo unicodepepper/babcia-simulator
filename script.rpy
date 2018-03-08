@@ -392,7 +392,7 @@ label start:
             "Maybe it's just that it's an unhealthy drink and she really wanted to take care of you."
             "You feel kinda ashamed and bummed."
             "Her expression is still sort of disappointed when she peels the potatoes."
-            return
+        return
             
         elseif biedra:
             "Her smile slowly degrades into a disgusted emotion."
@@ -411,7 +411,7 @@ label start:
                 "She can feel the difference."
                 "She knows you lied."
                 "You nasty, little liar."
-                return
+            return
                 
             label truth:
                 "You feel a bit ashamed that you were too lazy to go to the targ."
@@ -422,6 +422,7 @@ label start:
                 b "But please, next time listen to me, alright?"
                 "She smiles a little bit but you can tell she's still hurt."
                 "What's done is done. You can't fix the past."
+            return
         
         else:
             "The veggies are exactly what she asked for. She happily grates the potatoes and dices the onion."
