@@ -1,8 +1,16 @@
 define p = Character("[player_name]", color="#F39C12")
-define b = Character("Babcia", color="#2A52BE")
+define b = Character("Babcia Halinka", color="#2A52BE")
 define d = Character("Dziadek", color="#85C1E9")
 define k = Character("Ksiądz Przemek", color="#292929")
 define kasa = Character("Kasjerka Andżelika", color="#FF0080")
+
+transform leftish:
+    xalign 0.37
+    yalign 0.35
+transform rightish:
+    xalign 0.63
+    yalign 0.35
+
 default hajs = False
 default jesus = False
 default jp2 = False
@@ -15,7 +23,8 @@ default swiezak2 = False
 
 label start:
  
-    scene bg 1
+    scene room1
+    with Dissolve(.5)
     
     "It's a beautiful Sunday morning. You're at your {i}babcia{/i}'s house."
     "You wake up to the sunrays falling on your face from beneath white, lace curtains."
@@ -37,6 +46,7 @@ label start:
     "Minutes pass before you hear someone call you."
     
     show babcia start at left
+    with Dissolve(.5)
     
     b "Hello there darling!"
     b "I hope you slept well."
@@ -117,6 +127,8 @@ label start:
         
     label theroom:
         "You decide to get up and look around the room. {w}It strangely reminds you of communism."
+        scene room2
+        with fade
         "What do you want to do?"
         
         menu:
@@ -127,12 +139,16 @@ label start:
                 jump discoverdziadek
         
     label discoverswiezak:
-        "It's a well-known Polish merchandise from Biedronka. {w}They sold a ton of them. {w}A literal ton. {w}{size=12}Probably.{/size}"
+        scene couchview
+        with fade
+        "It's a well-known Polish merchandise from Biedronka. {w}They sold a ton of them. {w}A literal ton. {w}{size=15}Probably.{/size}"
         "Now that you've already found it, you walk around and see..."
         $ swiezak1 = True
     jump discoverdziadek
         
     label discoverdziadek:
+        scene dziadekbg
+        with fade
         "Your favourite {i}dziadek{/i}!"
         "He's snoring loudly. {w}Hopefully he's sleeping well."
         "It would be a shame if {i}someone{/i} was to interrupt him."
@@ -172,6 +188,8 @@ label start:
 ##################################################################
         
     label kitchen1:
+        scene kitchen1
+        with fade
         b "There you are, darling! {w}Sit down please, the food is getting cold!"
         "It's so lovely you have such a babcia."
         "You sit by the table and munch on some scrambled eggs she prepared for you beforehand."
@@ -188,6 +206,8 @@ label start:
 ##################################################################
         
     label walkout:
+        show dom1
+        with fade
         "It's a wonderful sunny day."
         "Everyone's obviously at church, besides the ones who are at the targ."
         "These people will probably go to the mass in the evening."
@@ -206,12 +226,12 @@ label start:
 
         label targ:
         # ay lmao come up with something you idiot
-        
         jump walkout2
         
         
         label church:
-                # church from afar pic
+            scene church1
+            with fade
             "It's an old church that you vaguely remember from your childhood. {w}You probably used to go there every Sunday with your babcia and dziadek."
             "As you walk by, a man, clearly some kind of {i}ksiądz{/i}, approaches you with a smile."
                 # show ksiądz as well, to the left
@@ -226,9 +246,9 @@ label start:
             "Seems like he really wants to show it off to you. Maybe he was the one to design the interior?"
                 # church on the inside
             "You walk in and you're immediately stunned by what you see."
-                # column pic
+            scene church2
             "Beautiful columns..."
-                # some kinda center pic
+            scene church3
             "Wide naves..."
                 # a close up on witraże?
             "Colorful light shining through stained glass..."
@@ -238,6 +258,8 @@ label start:
             "After saying this, he seems to be thinking hard again."
             "He pulls out two paper cards out of his pocket."
             k "Right, I would like you to take this. Choose one!"
+            show jesus at leftish
+            show jp2 at rightish
             "It's pictures of Jesus Christ and Pope John Paul II."
             "Which one will you choose?"
             menu picture:
@@ -247,14 +269,16 @@ label start:
                     jump jp2
                                                             
                     label jesus:
-                            # a pic of jesus
+                        hide jp2
+                        show jesus at truecenter
                         "You've obtained a picture!"
                         "Your babcia will surely love it."
                         $ jesus = True
                         jump walkout2
                             
                     label jp2:
-                            # a pic of jp2
+                        hide jesus
+                        show jp2 at truecenter
                         "You've obtained a picture!"
                         "Your babcia will surely love it."
                         $ jp2 = True
@@ -296,11 +320,15 @@ label start:
 ##################################################################
 
         label walkout2:
+            scene dom1
+            hide jp2
+            hide jesus
             "Where do you want to go now?"
             menu walkoutmenu2:
                 "Go to the targ.":
                     jump targ
                 "Go next to the church." if not (jp2 or jesus):
                     pass
+                    jump church
                 "Go to Biedronka.":
                     jump biedronka
