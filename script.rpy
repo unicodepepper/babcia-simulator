@@ -377,7 +377,7 @@ label start:
 
     label kitchen2:
         scene kitchen1
-        "yay!
+        "yay!"
         
     label kitchen3:
         scene kitchen1
