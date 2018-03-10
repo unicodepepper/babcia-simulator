@@ -328,30 +328,44 @@ label start:
             "Walking down the aisles you finally spot the veggie stall."
             "Sure they're a bit more expensive than on the targ, but who cares?"
             "Veggies are veggies."
+            "You grab just how much you need and walk past the beverages aisle."
                 # show here the cola stall
             "Oh, here's some nice drink..."
             "You wonder if you should get some off brand cola or not."
+            "A typical Polish kid thing."
             
             menu cola:
                 "Take it.":
                     $ cola = True
-                    pass
+                    jump colatrue
                 "You have kompot at home, you don't need cola.":
-                    pass
+                    jump colafalse
+                    
+                    label colatrue:
+                        "A nice cold drink won't hurt anyone, will it?"
+                        "You take a bottle and head over to the {i}kasjerka{/i}."
+                        jump kasa
                          
-            "You grab just how much you need and walk to the {i}kasjerka{/i}."
-            "She looks pretty tired with life."
-            "Moving your veggies slowly, she eventually gets it all done and prints out the receipt."
-            if hajs ==True:
-                kasa "Oh, right."
-                kasa "You paid enough to get a świeżak. Here you go."
-                "She takes a świeżak out from behind the counter and puts it on the till."
-                "Another one for you! {w}That's pretty cool, right?"
-                $ swiezak2 = True
-            else:
-                kasa "Thank you for shopping in Biedronka, or something."
-                "You shrug and walk out with your groceries. {w}And a bottle of unhealthy fizzy drink."
-            jump walkout2
+                    label colafalse:
+                        "Fizzy drinks? With phosphoric acid? You listened well at chemistry classes. {w}You won't fall for this sweet, carbonated trap."
+                        "Not today, cola! Not today!"
+                        "...moving on. {w}You head to the {i}kasjerka{/i} now."
+                        jump kasa
+            
+            label kasa:
+                "She looks pretty tired with life."
+                "Moving your veggies slowly, she eventually gets it all done and prints out the receipt."
+                if cola ==True:
+                    kasa "Oh, right."
+                    kasa "You paid enough to get a świeżak. Here you go."
+                    "She takes a świeżak out from behind the counter and puts it on the till."
+                    "Another one for you! {w}That's pretty cool, right?"
+                    "Now that you've got all you need (and a new friend!...) you walk out of this {i}heavenly{/i} store."
+                    $ swiezak2 = True
+                else:
+                    kasa "Thank you for shopping in Biedronka, or something."
+                    "You shrug and walk out with your groceries. {w}And a bottle of unhealthy fizzy drink."
+                jump walkout2
                 
 ##################################################################
 
@@ -361,13 +375,13 @@ label start:
             hide jesus
             "Where do you want to go now?"
             menu walkoutmenu2:
-                "Go to the targ." if hajs:
+                "Go to the targ." if (biedra or targ):
                     pass
                     jump targ
                 "Go next to the church." if not (jp2 or jesus or hajs):
                     pass
                     jump church
-                "Go to Biedronka." if hajs:
+                "Go to Biedronka." if (biedra or targ):
                     pass
                     jump biedronka
                 "Go home.":
@@ -401,19 +415,19 @@ label start:
             "Her smile slowly degrades into a disgusted emotion."
             b "Did you go to the targ for sure like I asked you to?"
             menu:
+                
                 "Yes, I did!":
                     jump lie
-            
                 "Well...":
                     jump truth
             
                     label lie:
-                        "You vigorously nod your head and say you in fact, did go to the targ."
+                        "You vigorously nod your head and say that you, in fact, went to the targ."
                         "Your babcia, however, picks an onion and smells it. It seems weird to you."
                         "Not until seconds later do you remember babcias have brilliant sense for spotting supermarket products."
                         "She can feel the difference."
                         "She knows you lied."
-                        "You nasty, little liar."
+                        "You nasty, little {i}liar{/i}."
                     return
             
                     label truth:
