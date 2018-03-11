@@ -242,6 +242,7 @@ label start:
         label targ:
             scene targ1
             with fade
+            "hm"
         # ay lmao come up with something you idiot
             $ targdone = True
         jump walkout2
@@ -360,19 +361,19 @@ label start:
             
             label kasa:
             scene biedra8
-                "She looks pretty tired with life."
-                "Moving your veggies slowly, she eventually gets it all done and prints out the receipt."
-                if cola ==True:
-                    kasa "Oh, right."
-                    kasa "You paid enough to get a świeżak. Here you go."
-                    "She takes a świeżak out from behind the counter and puts it on the till."
-                    "Another one for you! {w}That's pretty cool, right?"
-                    "Now that you've got all you need (and a new friend!...) you walk out of this {i}heavenly{/i} store."
-                    $ swiezak2 = True
-                else:
-                    kasa "Thank you for shopping in Biedronka, or something."
-                    "You shrug and walk out with your groceries. {w}And a bottle of unhealthy fizzy drink."
-                jump walkout2
+            "She looks pretty tired with life."
+            "Moving your veggies slowly, she eventually gets it all done and prints out the receipt."
+            if cola ==True:
+                kasa "Oh, right."
+                kasa "You paid enough to get a świeżak. Here you go."
+                "She takes a świeżak out from behind the counter and puts it on the till."
+                "Another one for you! {w}That's pretty cool, right?"
+                "Now that you've got all you need (and a new friend!...) you walk out of this {i}heavenly{/i} store."
+                $ swiezak2 = True
+            else:
+                kasa "Thank you for shopping in Biedronka, or something."
+                "You shrug and walk out with your groceries. {w}And a bottle of unhealthy fizzy drink."
+            jump walkout2
                 
 ##################################################################
 
@@ -382,13 +383,13 @@ label start:
             hide jesus
             "Where do you want to go now?"
             menu walkoutmenu2:
-                "Go to the targ." if (biedra or targ):
+                "Go to the targ." if not (biedra or targdone):
                     pass
                     jump targ
-                "Go next to the church." if not (jp2 or jesus or hajs):
+                "Go next to the church." if not (jp2 or jesus):
                     pass
                     jump church
-                "Go to Biedronka." if (biedra or targ):
+                "Go to Biedronka." if not (biedra or targdone):
                     pass
                     jump biedronka
                 "Go home.":
@@ -403,7 +404,7 @@ label start:
         scene kitchen1
         b "Welcome back, darling! Is it hot outside?"
         b "I'm glad I didn't leave the house..."
-        "You put the groceries on the table and sit down"
+        "You put the groceries on the table and sit down."
         "Babcia reaches for potatoes and onions, happy that you did what she asked for."
 
         if cola:
