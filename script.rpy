@@ -313,28 +313,29 @@ label start:
                         
         label biedronka:
             $ biedra = True
-                # a pic of biedra from the outside
+            scene biedra1
             p "Here we are, the {i}best{/i} Polish store... Hah..."
             "You snicker to yourself."
             "No offense, you go to this store a lot. It's a fine one."
             "The essence of Poland, basically."
             "You approach it and gaze in awe. {w}Or... {w}No, not really."
+            scene biedra2
             "The slide doors open in front of you, like gates to heaven. Sorta."
+            scene biedra3
             "You think to yourself that maybe it's time to stop this attitude. Wow. How rude, right?"
-                # here should go a pic of biedra aisles
+            scene biedra4
             "The store isn't too big but it's got a lot of things all around."
             "You swiftly move among the aisles and wander around looking for veggies."
             "Out of sudden, a guy starts dancing wild moves right in front of the sweets aisle. {w}Weird music plays along from his tiny speaker, too."
-                # here kanikuły start playing and kacper shows up
+            scene biedra5
             "What the {i}hell{/i}?"
             "You decide to quickly retreat from this wild man."
-                # music and kacper are g o n e
-                # aisles turn to veggies
+            scene biedra7
             "Walking down the aisles you finally spot the veggie stall."
             "Sure they're a bit more expensive than on the targ, but who cares?"
             "Veggies are veggies."
             "You grab just how much you need and walk past the beverages aisle."
-                # show here the cola stall
+            scene biedra6
             "Oh, here's some nice drink..."
             "You wonder if you should get some off brand cola or not."
             "A typical Polish kid thing."
@@ -358,6 +359,7 @@ label start:
                         jump kasa
             
             label kasa:
+            scene biedra8
                 "She looks pretty tired with life."
                 "Moving your veggies slowly, she eventually gets it all done and prints out the receipt."
                 if cola ==True:
