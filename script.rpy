@@ -250,6 +250,9 @@ label start:
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
         
         label church:
+            # rydzyk: masz samochód? ; )
+            # tak: wchodź synu
+            # nie: won belzebubie!!!1
             scene church1
             with fade
             "It's an old church that you vaguely remember from your childhood. {w}You probably used to go there every Sunday with your babcia and dziadek."
@@ -338,6 +341,7 @@ label start:
             "You grab just how much you need and walk past the beverages aisle."
             scene biedra6
             "Oh, here's some nice drink..."
+            show cola1
             "You wonder if you should get some off brand cola or not."
             "A typical Polish kid thing."
             
@@ -450,7 +454,7 @@ label start:
                     return
     
         else:
-            "The veggies are exactly what she asked for. She happily grates the potatoes and dices the onion."
+            "The veggies are exactly what needed. She happily grates the potatoes and dices the onion."
             "What might she be cooking?..."
         return
                     
