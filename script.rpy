@@ -34,6 +34,7 @@ label start:
     "It's cozy and warm under the thick quilt decorated with floral patterns. {w}You don't really feel like getting up."
     
     "You're trying to remember anything from before you woke up from this nice sleep."
+    play kanikuly
 
     $ player_name = renpy.input("What was your name again?...")
 
@@ -250,11 +251,8 @@ label start:
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
         
         label church:
-            # rydzyk: masz samochód? ; )
-            # tak: wchodź synu
-            # nie: won belzebubie!!!1
             scene church1
-
+            with fade
             "It's an old church that you vaguely remember from your childhood. {w}You probably used to go there every Sunday with your babcia and dziadek."
             "As you walk by, a man, clearly some kind of {i}ksiądz{/i}, approaches you with a smile."
                 # show ksiądz as well, to the left
@@ -267,7 +265,6 @@ label start:
             "Ksiądz Przemek, however, suggests that you check out the church first."
             "As he says, it's been refreshed and looks much different on the inside."
             "Seems like he really wants to show it off to you. Maybe he was the one to design the interior?"
-                # church on the inside
             "You walk in and you're immediately stunned by what you see."
             scene church2
             "Beautiful columns..."
