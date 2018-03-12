@@ -288,9 +288,9 @@ label start:
             "He wants you to buy a kebab."
             "And you really are hungry, so maybe it's a good idea..."
             menu:
-                "You deserve a good meal, right?"
+                "You deserve a good meal, right?":
                     jump kebabyes
-                "A tasty dinner probably awaits you at home. Don't get a kebab."
+                "A tasty dinner probably awaits you at home. Don't get a kebab.":
                     jump kebabno
                     
                     label kebabyes:
