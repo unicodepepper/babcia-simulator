@@ -1,6 +1,7 @@
 define p = Character("[player_name]", color="#F39C12")
 define b = Character("Babcia Halinka", color="#2A52BE")
 define d = Character("Dziadek", color="#85C1E9")
+define i = Character("Pani Irenka", color="#ADEC6E")
 define k = Character("Ksiądz Przemek", color="#292929")
 define kasa = Character("Kasjerka Andżelika", color="#FF0080")
 
@@ -34,7 +35,6 @@ label start:
     "It's cozy and warm under the thick quilt decorated with floral patterns. {w}You don't really feel like getting up."
     
     "You're trying to remember anything from before you woke up from this nice sleep."
-    play music 'kanikuly.mp3'
 
     $ player_name = renpy.input("What was your name again?...")
 
@@ -103,7 +103,9 @@ label start:
     b "Now, [player_name], get up while I prepare breakfast for you."
     "She pinches your cheek belovingly before retreating to the kitchen."
     
-    hide babcia start and kompocik 1
+    hide babcia start
+    with dissolve
+    hide kompocik 1
     with dissolve
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -149,7 +151,7 @@ label start:
     label discoverswiezak:
         scene couchview
         with fade
-        "It's a well-known Polish merchandise from Biedronka. {w}They sold a ton of them. {w}A literal ton. {w}{size=15}Probably.{/size}"
+        "It's a well-known Polish merchandise from Biedronka. {w}They sold a ton of them. {w}A literal ton. {w}{size=-2}Probably.{/size}"
         "Now that you've already found it, you walk around and see..."
         $ swiezak1 = True
     jump discoverdziadek
@@ -211,7 +213,7 @@ label start:
         "It would be shameful to make your babcia run errands herself when you know she's old like that."
         "You nod your head and take a sip of kompot."
         b "I would need you to buy a kilo of potatoes and three onions."
-        b "Helenka, my dear friend, should still be out there with her stall. {w}I think you'll find her easily. {w}If not, she will wave at you. I bet she remembers you!"
+        b "Irenka, my dear friend, should still be out there with her stall. {w}I think you'll find her easily. {w}If not, she will wave at you. I bet she remembers you!"
         "Babcia hands you 10 złoty and pats your hand vigorously. {w}As much as an old lady can, at least."
         "You finish your food quickly and help her wash the dishes, like a good grandchild would."
         b "See you [player_name]! Don't forget about the groceries!"
@@ -239,11 +241,75 @@ label start:
 ##################################################################
 
         label targ:
+            $ targdone = True
             scene targ1
             with fade
-            "hm"
-        # ay lmao come up with something you idiot
-            $ targdone = True
+            "There isn't a lot of people on the targ today."
+            "Especially at this hour."
+            scene targ5
+            "You walk around looking for your babcia's friend. {w}You have no idea how are you supposed to find her, but... Yeah."
+            scene targ7
+            "Where might she be?"
+            "You decide to walk around a little bit more and compare the prices of apples."
+            scene targ2
+            "Nope, it's not her."
+            "{size=-2}Probably."
+            "And the apples are pretty expensive, too."
+            "Not like you need apples really."
+            scene targ3
+            "You've been walking around the endless targ for an hour now."
+            "Still no sight of {i}Pani Irenka{/i} or cheap apples."
+            "Your stomach starts grumbling silently at you."
+            scene targ4
+            "Finally, after another thirty minutes, you spot someone waving at you."
+            "It must be Pani Irenka!"
+            show irenka
+            i "There you are!"
+            i "Long time no see, kiddo!"
+            "She flashes a smile at you and carries out a bag of potatoes and a couple onions."
+            i "Your babcia told me you would come over and mentioned veggies so I assumed that's what she needed."
+            "Wow, these babcias really do have some special sense."
+            "You pick up the plastic bag and pay just the right amount."
+            i "Say hi to Halinka from me!"
+            scene targ1
+            "This little nasty monster in your belly really growls at you now."
+            "Which means you're pretty hungry."
+            "Oh. {w}Oh!..."
+            scene kebab1
+            "There's a kebab, always when it's needed!"
+            "Everyone loves kebaby."
+            "If you don't love them... You're not a true Pole. {w}Sorry. {w}I don't make the rules."
+            scene kebab2
+            show janusz
+            "The fellow Pole stares at you thoughtfully."
+            "He speaks no words but you know what is on his mind."
+            "You just know."
+            "..."
+            "He wants you to buy a kebab."
+            "And you really are hungry, so maybe it's a good idea..."
+            menu:
+                "You deserve a good meal, right?"
+                    jump kebabyes
+                "A tasty dinner probably awaits you at home. Don't get a kebab."
+                    jump kebabno
+                    
+                    label kebabyes:
+                        show kebab
+                        "Janusz the kebab man hands you a kebab."
+                        "His face doesn't change but you can feel he's content."
+                        hide kebab
+                        "Soon enough you feel full and satisfied."
+                        jump walkout2
+                        
+                    label kebabno:
+                        "You deny the kebab."
+                        "Janusz the kebab man starts to get angry."
+                        "He shows you teeth and you can feel his fury growing."
+                        "You decide to retreat the fastest you can before you experience the kebab wrath."
+                        jump dresi
+                        
+    label dresi:
+        "hm"
         jump walkout2
         
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -327,6 +393,7 @@ label start:
             "You swiftly move among the aisles and wander around looking for veggies."
             "Out of sudden, a guy starts dancing wild moves right in front of the sweets aisle. {w}Weird music plays along from his tiny speaker, too."
             scene biedra5
+            play music 'kanikuly.mp3'
             "What the {i}hell{/i}?"
             "You decide to quickly retreat from this wild man."
             scene biedra7
@@ -366,7 +433,9 @@ label start:
                 kasa "Oh, right."
                 kasa "You paid enough to get a świeżak. Here you go."
                 "She takes a świeżak out from behind the counter and puts it on the till."
+                show swiezak2
                 "Another one for you! {w}That's pretty cool, right?"
+                hide swiezak2
                 "Now that you've got all you need (and a new friend!...) you walk out of this {i}heavenly{/i} store."
                 $ swiezak2 = True
             else:
@@ -395,9 +464,6 @@ label start:
                     jump kitchen2
                     
 ##################################################################
-
-
-
         
     label kitchen2:
         scene kitchen1
