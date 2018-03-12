@@ -34,7 +34,7 @@ label start:
     "It's cozy and warm under the thick quilt decorated with floral patterns. {w}You don't really feel like getting up."
     
     "You're trying to remember anything from before you woke up from this nice sleep."
-    play kanikuly
+    play kanikuly.mp3
 
     $ player_name = renpy.input("What was your name again?...")
 
