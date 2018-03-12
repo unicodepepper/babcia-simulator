@@ -103,9 +103,7 @@ label start:
     b "Now, [player_name], get up while I prepare breakfast for you."
     "She pinches your cheek belovingly before retreating to the kitchen."
     
-    hide babcia start
-    with dissolve
-    hide kompocik 1
+    hide babcia start and kompocik 1
     with dissolve
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
