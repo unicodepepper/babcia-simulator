@@ -297,7 +297,7 @@ label start:
                     jump kebabno
                     
                     label kebabyes:
-                        show kebab at true center
+                        show kebab at truecenter
                         "Janusz the kebab man hands you a kebab."
                         "His face doesn't change but you can feel he's content."
                         hide kebab
@@ -315,8 +315,12 @@ label start:
                         
     label dresi:
         scene gangsta babcia
-        "What do you stand for?"
-        "Legia Warszawa or Wisła Kraków?"
+        show dres
+        "Walking down the street you notice a couple dresi standing by."
+        "You speed up significantly but they catch you anyway..."
+        "They never give up."
+        s "What do you stand for?"
+        s "Legia Warszawa or Wisła Kraków?"
         # figure out how to throw timer in here and set if to 3 seconds maybe?
         # Legia is the answer
         menu:
@@ -329,6 +333,7 @@ label start:
                     s "You're one of us!"
                     s "Lucky you I'm in a good mood today."
                     s "Have this before I change my mind."
+                    show swiezak3
                     "He... {w}He hands you a świeżak."
                     "That did come unexpected."
                     "You stutter out a thank you and go away quickly."
@@ -337,9 +342,9 @@ label start:
                 
                 label wisła:
                     s "{i}Really?{/i}"
-                    s "You're fucked, man."
+                    s "You're dead, man."
                     s "You'd better run."
-                    "Maybe it does seem like a good idea to {i}run like hell before they beat the shit out of you.{/i}"
+                    "Maybe it does seem like a good idea to {i}run like hell before they beat you up all black and blue.{/i}"
                     "By the skin of your teeth you've escaped."
                     "Next time it would be useful to at least learn some sports teams..."
                 jump walkout2
