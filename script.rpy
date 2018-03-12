@@ -254,7 +254,7 @@ label start:
             # tak: wchodź synu
             # nie: won belzebubie!!!1
             scene church1
-            with fade
+
             "It's an old church that you vaguely remember from your childhood. {w}You probably used to go there every Sunday with your babcia and dziadek."
             "As you walk by, a man, clearly some kind of {i}ksiądz{/i}, approaches you with a smile."
                 # show ksiądz as well, to the left
