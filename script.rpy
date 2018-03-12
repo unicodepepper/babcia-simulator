@@ -2,6 +2,7 @@ define p = Character("[player_name]", color="#F39C12")
 define b = Character("Babcia Halinka", color="#2A52BE")
 define d = Character("Dziadek", color="#85C1E9")
 define i = Character("Pani Irenka", color="#ADEC6E")
+define s = Character("Dres Seba", color="#00B732")
 define k = Character("Ksiądz Przemek", color="#292929")
 define kasa = Character("Kasjerka Andżelika", color="#FF0080")
 
@@ -20,6 +21,8 @@ default jp2 = False
 default cola = False
 default swiezak1 = False
 default swiezak2 = False
+default swiezak3 = False
+default kebab = False
 
 ##################################################################
 # never ever put numbers in var names, blease :')
@@ -263,9 +266,9 @@ label start:
             scene targ4
             "Finally, after another thirty minutes, you spot someone waving at you."
             "It must be Pani Irenka!"
-            show irenka
+            show irenka at leftish
             i "There you are!"
-            i "Long time no see, kiddo!"
+            i "Long time no see, kid!"
             "She flashes a smile at you and carries out a bag of potatoes and a couple onions."
             i "Your babcia told me you would come over and mentioned veggies so I assumed that's what she needed."
             "Wow, these babcias really do have some special sense."
@@ -280,7 +283,7 @@ label start:
             "Everyone loves kebaby."
             "If you don't love them... You're not a true Pole. {w}Sorry. {w}I don't make the rules."
             scene kebab2
-            show janusz
+            show janusz at leftish
             "The fellow Pole stares at you thoughtfully."
             "He speaks no words but you know what is on his mind."
             "You just know."
@@ -294,7 +297,7 @@ label start:
                     jump kebabno
                     
                     label kebabyes:
-                        show kebab
+                        show kebab at true center
                         "Janusz the kebab man hands you a kebab."
                         "His face doesn't change but you can feel he's content."
                         hide kebab
@@ -304,13 +307,42 @@ label start:
                     label kebabno:
                         "You deny the kebab."
                         "Janusz the kebab man starts to get angry."
+                        hide janusz1
+                        show janusz2 at leftish
                         "He shows you teeth and you can feel his fury growing."
                         "You decide to retreat the fastest you can before you experience the kebab wrath."
                         jump dresi
                         
     label dresi:
-        "hm"
-        jump walkout2
+        scene gangsta babcia
+        "What do you stand for?"
+        "Legia Warszawa or Wisła Kraków?"
+        # figure out how to throw timer in here and set if to 3 seconds maybe?
+        # Legia is the answer
+        menu:
+            "Legia Warszawa!":
+                jump legia
+            "Wisła Kraków!":
+                jump wisła
+                
+                label legia:
+                    s "You're one of us!"
+                    s "Lucky you I'm in a good mood today."
+                    s "Have this before I change my mind."
+                    "He... {w}He hands you a świeżak."
+                    "That did come unexpected."
+                    "You stutter out a thank you and go away quickly."
+                jump walkout2
+                
+                
+                label wisła:
+                    s "{i}Really?{/i}"
+                    s "You're fucked, man."
+                    s "You'd better run."
+                    "Maybe it does seem like a good idea to {i}run like hell before they beat the shit out of you.{/i}"
+                    "By the skin of your teeth you've escaped."
+                    "Next time it would be useful to at least learn some sports teams..."
+                jump walkout2
         
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
         
