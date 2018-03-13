@@ -253,13 +253,13 @@ label start:
         
         menu walkoutmenu:
             "Go to the targ.":
-            window hide Dissolve (.5)
+                window hide Dissolve (.5)
                 jump targ
             "Go next to the church.":
-            window hide Dissolve (.5)
+                window hide Dissolve (.5)
                 jump church
             "Go to Biedronka.":
-            window hide Dissolve (.5)
+                window hide Dissolve (.5)
                 jump biedronka
                 
 ##################################################################
