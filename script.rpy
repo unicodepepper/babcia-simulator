@@ -1,15 +1,11 @@
 # to do:
     # find better pics for dresi and kebaby
     # find out how to make buttons
-    # adjust positioning
     # try to find out how to fix the jump issue
-    # find some chill track to play in the bg
+    # arrange the tracks and loop the necessary ones
     # set up kanikuły
     # animate a shitty pic of Kacper
     # what should all świeżaki do? make a special cg show up?
-    
-# so... in the end we've got one true good ending? i believe
-# and also like. three bad endings lmao.
 
 ##################################################################
 
@@ -59,10 +55,9 @@ screen countdown:
 ##################################################################
 # never ever put numbers in var names, blease :')
 ##################################################################
-############################################################
-######################################################
+
 label start:
- 
+    play music 'wieś.mp3' 
     scene room1
     with Dissolve(.5)
     
