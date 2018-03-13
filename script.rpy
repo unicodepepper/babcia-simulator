@@ -319,7 +319,7 @@ label start:
             "Everyone loves kebaby."
             "If you don't love them... You're not a true Pole. {w}Sorry. {w}I don't make the rules."
             scene kebab2
-            show janusz at leftish
+            show janusz1 at leftish
             "The fellow Pole stares at you thoughtfully."
             "He speaks no words but you know what is on his mind."
             "You just know."
@@ -354,6 +354,7 @@ label start:
             else:
                 "Sadly, you find your pockets empty. {w}Just like your stomach."
                 "That's too bad."
+                show janusz2 at leftish
                 "Janusz the kebab man grunts angrily. You quickly walk away. Better not have him jump to your eyes."
                 jump dresi
                         
@@ -385,6 +386,8 @@ label start:
                     show swiezak3 at truecenter
                     "He... {w}He hands you a świeżak."
                     "That did come unexpected."
+                    hide swiezak3
+                    with Dissolve (.5)
                     "You stutter out a thank you and go away quickly."
                 jump walkout2
                 
@@ -393,6 +396,7 @@ label start:
                     ds "You're dead, man."
                     ds "You'd better run."
                     "Maybe it does seem like a good idea to {i}run like hell before they beat you up all black and blue.{/i}"
+                    scene walkout2
                     "By the skin of your teeth you've escaped."
                     "Next time it would be useful to at least learn some sports teams..."
                 jump walkout2
@@ -458,7 +462,6 @@ label start:
                         hide jp2
                         with Dissolve (.5)
                         show jesus at truecenter
-                        with Dissolve (.5)
                         "You've obtained a picture!"
                         "Your babcia will surely love it."
                         $ jesus = True
@@ -468,7 +471,6 @@ label start:
                         hide jesus
                         with Dissolve (.5)
                         show jp2 at truecenter
-                        with Dissolve (.5)
                         "You've obtained a picture!"
                         "Your babcia will surely love it."
                         $ jp2 = True
@@ -503,7 +505,7 @@ label start:
             "You grab just how much you need and walk past the beverages aisle."
             scene biedra6
             "Oh, here's some nice drink..."
-            show cola1
+            show cola1 at truecenter
             "You wonder if you should get some off brand cola or not."
             "A typical Polish kid thing."
             
@@ -533,7 +535,7 @@ label start:
                 kasa "Oh, right."
                 kasa "You paid enough to get a świeżak. Here you go."
                 "She takes a świeżak out from behind the counter and puts it on the till."
-                show swiezak2
+                show swiezak2 at truecenter
                 "Another one for you! {w}That's pretty cool, right?"
                 hide swiezak2
                 "Now that you've got all you need (and a new friend!...) you walk out of this {i}heavenly{/i} store."
