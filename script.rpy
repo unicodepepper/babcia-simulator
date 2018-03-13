@@ -187,7 +187,7 @@ label start:
     label discoverswiezak:
         scene couchview
         with fade
-        "It's a well-known Polish merchandise from Biedronka. {w}They sold a ton of them. {w}A literal ton. {w}{size=-2}Probably.{/size}"
+        "It's a well-known Polish merchandise from Biedronka. {w}They sold a ton of them. {w}A literal ton. {w}{size=-5}Probably.{/size}"
         "Now that you've already found it, you walk around and see..."
         $ swiezak1 = True
     jump discoverdziadek
@@ -292,7 +292,7 @@ label start:
             "You decide to walk around a little bit more and compare the prices of apples."
             scene targ2
             "Nope, it's not her."
-            "{size=-2}Probably."
+            "{size=-5}Presumably.{/size}"
             "And the apples are pretty expensive, too."
             "Not like you need apples really."
             scene targ3
@@ -396,7 +396,7 @@ label start:
                     ds "You're dead, man."
                     ds "You'd better run."
                     "Maybe it does seem like a good idea to {i}run like hell before they beat you up all black and blue.{/i}"
-                    scene walkout2
+                    scene dom1
                     "By the skin of your teeth you've escaped."
                     "Next time it would be useful to at least learn some sports teams..."
                 jump walkout2
