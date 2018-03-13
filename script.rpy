@@ -635,7 +635,7 @@ label start:
             "The veggies are exactly what needed. She happily grates the potatoes and dices the onion."
             "What might she be cooking?..."
             "You watch her beat some pork into nice {i}kotlety schabowe{/i}."
-            play music 'kormorany.mp3' fadein 1.0
+            play music 'kormorany.mp3' fadein 5.0
             "The radio station she turned on now plays old Polish songs."
             "It's really enjoyable."
             "Feels like a good day."
