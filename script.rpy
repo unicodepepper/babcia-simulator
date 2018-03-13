@@ -372,7 +372,7 @@ label start:
         $ time = 5
         $ timer_range = 5
         $ timer_jump = 'niewiem'
-        show screen countdown at countdown
+        show screen countdown at leftish
         menu:
             "Legia Warszawa!":
                 hide screen countdown
