@@ -429,12 +429,16 @@ label start:
             with Dissolve (.5)
             "You walk in and you're immediately stunned by what you see."
             scene church2
+            with Dissolve (.5)
             "Beautiful columns..."
             scene church3
+            with Dissolve (.5)
             "Wide naves..."
             scene church4
+            with Dissolve (.5)
             "Colorful light shining through stained glass..."
             scene church1
+            with Dissolve (.5)
             "The church you remember looked way different and way more modest."
             k "Feel free to walk around, the next mass won't start until thirty minutes from now."
             "After saying this, he seems to be thinking hard again."
@@ -487,23 +491,29 @@ label start:
             "The essence of Poland, basically."
             "You approach it and gaze in awe. {w}Or... {w}No, not really."
             scene biedra2
+            with Dissolve (.5)
             "The slide doors open in front of you, like gates to heaven. Sorta."
             scene biedra3
+            with Dissolve (.5)
             "You think to yourself that maybe it's time to stop this attitude. Wow. How rude, right?"
             scene biedra4
+            with Dissolve (.5)
             "The store isn't too big but it's got a lot of things all around."
             "You swiftly move among the aisles and wander around looking for veggies."
             "Out of sudden, a guy starts dancing wild moves right in front of the sweets aisle. {w}Weird music plays along from his tiny speaker, too."
             scene biedra5
+            with Dissolve (.5)
             play music 'kanikuly.mp3'
             "What the {i}hell{/i}?"
             "You decide to quickly retreat from this wild man."
             scene biedra7
+            with Dissolve (.5)
             "Walking down the aisles you finally spot the veggie stall."
             "Sure they're a bit more expensive than on the targ, but who cares?"
             "Veggies are veggies."
             "You grab just how much you need and walk past the beverages aisle."
             scene biedra6
+            with Dissolve (.5)
             "Oh, here's some nice drink..."
             show cola1 at truecenter
             "You wonder if you should get some off brand cola or not."
@@ -514,11 +524,15 @@ label start:
                     $ cola = True
                     jump colatrue
                 "You have kompot at home, you don't need cola.":
+                    hide cola1
+                    with Dissolve (.5)
                     jump colafalse
                     
                     label colatrue:
                         "A nice cold drink won't hurt anyone, will it?"
                         "You take a bottle and head over to the {i}kasjerka{/i}."
+                        hide cola1
+                        with Dissolve (.5)
                         jump kasa
                          
                     label colafalse:
@@ -538,6 +552,7 @@ label start:
                 show swiezak2 at truecenter
                 "Another one for you! {w}That's pretty cool, right?"
                 hide swiezak2
+                with Dissolve (.5)
                 "Now that you've got all you need (and a new friend!...) you walk out of this {i}heavenly{/i} store."
                 $ swiezak2 = True
             else:
@@ -549,8 +564,7 @@ label start:
 
         label walkout2:
             scene dom1
-            hide jp2
-            hide jesus
+            with Dissolve (.5)
             "Where do you want to go now?"
             menu walkoutmenu2:
                 "Go to the targ." if not (biedra or targdone):
@@ -569,6 +583,7 @@ label start:
         
     label kitchen2:
         scene kitchen1
+        with Dissolve (.5)
         b "Welcome back, darling! Is it hot outside?"
         b "I'm glad I didn't leave the house..."
         "You put the groceries on the table and sit down."
