@@ -7,20 +7,18 @@
     # find some chill track to play in the bg
     # set up kanikuły
     # animate a shitty pic of Kacper
-    # work on the good ending
-    # add bad ending
-        # kebabyes
-    # good ending can also be kebabno
     # what should all świeżaki do? make a special cg show up?
     
 # so... in the end we've got one true good ending? i believe
 # and also like. three bad endings lmao.
 
+##################################################################
+
 define p = Character("[player_name]", color="#F39C12")
 define b = Character("Babcia Halinka", color="#2A52BE")
 define d = Character("Dziadek", color="#85C1E9")
 define i = Character("Pani Irenka", color="#ADEC6E")
-define s = Character("Dres Seba", color="#00B732")
+define ds = Character("Dres Seba", color="#00B732")
 define k = Character("Ksiądz Przemek", color="#292929")
 define kasa = Character("Kasjerka Andżelika", color="#FF0080")
 
@@ -43,9 +41,27 @@ default swiezak3 = False
 default kebab = False
 
 ##################################################################
+
+transform alpha_dissolve:
+    alpha 0.0
+    linear 0.5 alpha 1.0
+    on hide:
+        linear 0.5 alpha 0
+        
+init:
+    $ timer_range = 0
+    $ timer_jump = 0
+    $ time = 0
+
+screen countdown:
+    timer 0.01 repeat True action If(time > 0, true=SetVariable('time', time - 0.02), false=[Hide('countdown'), Jump(timer_jump)]) 
+    bar value time range timer_range xalign 0.5 yalign 0.9 xmaximum 300 at alpha_dissolve
+
+##################################################################
 # never ever put numbers in var names, blease :')
 ##################################################################
-
+############################################################
+######################################################
 label start:
  
     scene room1
@@ -311,28 +327,36 @@ label start:
             "..."
             "He wants you to buy a kebab."
             "And you really are hungry, so maybe it's a good idea..."
-            menu:
-                "You deserve a good meal, right?":
-                    jump kebabyes
-                "A tasty dinner probably awaits you at home. Don't get a kebab.":
-                    jump kebabno
+            if hajs:
+                menu:
+                    "You deserve a good meal, right?":
+                        jump kebabyes
+                    "A tasty dinner probably awaits you at home. Don't get a kebab.":
+                        jump kebabno
                     
-                    label kebabyes:
-                        show kebab at truecenter
-                        "Janusz the kebab man hands you a kebab."
-                        "His face doesn't change but you can feel he's content."
-                        hide kebab
-                        "Soon enough you feel full and satisfied."
-                        jump walkout2
+                        label kebabyes:
+                            $ kebab = True
+                            show kebab at truecenter
+                            "Janusz the kebab man hands you a kebab."
+                            "His face doesn't change but you can feel he's content."
+                            hide kebab
+                            "Soon enough you feel full and satisfied."
+                            jump walkout2
                         
-                    label kebabno:
-                        "You deny the kebab."
-                        "Janusz the kebab man starts to get angry."
-                        hide janusz1
-                        show janusz2 at leftish
-                        "He shows you teeth and you can feel his fury growing."
-                        "You decide to retreat the fastest you can before you experience the kebab wrath."
-                        jump dresi
+                        label kebabno:
+                            "You deny the kebab."
+                            "Janusz the kebab man starts to get angry."
+                            hide janusz1
+                            show janusz2 at leftish
+                            "He shows you teeth and you can feel his fury growing."
+                            "You decide to retreat the fastest you can before you experience the kebab wrath."
+                            jump dresi
+                            
+            else:
+                "Sadly, you find your pockets empty. {w}Just like your stomach."
+                "That's too bad."
+                "Janusz the kebab man grunts angrily. You quickly walk away. Better not have him jump to your eyes."
+                jump dresi
                         
     label dresi:
         scene gangsta babcia
@@ -340,34 +364,43 @@ label start:
         "Walking down the street you notice a couple dresi standing by."
         "You speed up significantly but they catch you anyway..."
         "They never give up."
-        s "What do you stand for?"
-        s "Legia Warszawa or Wisła Kraków?"
-        # figure out how to throw timer in here and set if to 3 seconds maybe?
-        # Legia is the answer
+        ds "What do you stand for?"
+        $ time = 5
+        $ timer_range = 5
+        $ timer_jump = 'niewiem'
+        show screen countdown
+        ds "Legia Warszawa or Wisła Kraków?"
         menu:
             "Legia Warszawa!":
+                hide screen countdown
                 jump legia
             "Wisła Kraków!":
+                hide screen countdown
                 jump wisła
                 
                 label legia:
-                    s "You're one of us!"
-                    s "Lucky you I'm in a good mood today."
-                    s "Have this before I change my mind."
+                    ds "You're one of us!"
+                    ds "Lucky you I'm in a good mood today."
+                    ds "Have this before I change my mind."
                     show swiezak3
                     "He... {w}He hands you a świeżak."
                     "That did come unexpected."
                     "You stutter out a thank you and go away quickly."
                 jump walkout2
                 
-                
                 label wisła:
-                    s "{i}Really?{/i}"
-                    s "You're dead, man."
-                    s "You'd better run."
+                    ds "{i}Really?{/i}"
+                    ds "You're dead, man."
+                    ds "You'd better run."
                     "Maybe it does seem like a good idea to {i}run like hell before they beat you up all black and blue.{/i}"
                     "By the skin of your teeth you've escaped."
                     "Next time it would be useful to at least learn some sports teams..."
+                jump walkout2
+                
+                label niewiem:
+                    ds "Oh, you can't choose?"
+                    ds "I'll choose for you."
+                    "You decide to run away before he beats you up."
                 jump walkout2
         
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -377,7 +410,8 @@ label start:
             with fade
             "It's an old church that you vaguely remember from your childhood. {w}You probably used to go there every Sunday with your babcia and dziadek."
             "As you walk by, a man, clearly some kind of {i}ksiądz{/i}, approaches you with a smile."
-                # show ksiądz as well, to the left
+            show ksiądz at leftish
+            with Dissolve (.5)
             k "Hello! Hm... I think I remember your face, may you remind me who are you?..."
             "He truly looks like he's buried deep in thoughts."
             "You explain you're Babcia Halinka's grandchild. {w}The village's so small that he easily remembers who are you talking about."
@@ -387,6 +421,8 @@ label start:
             "Ksiądz Przemek, however, suggests that you check out the church first."
             "As he says, it's been refreshed and looks much different on the inside."
             "Seems like he really wants to show it off to you. Maybe he was the one to design the interior?"
+            hide ksiądz
+            with Dissolve (.5)
             "You walk in and you're immediately stunned by what you see."
             scene church2
             "Beautiful columns..."
@@ -404,7 +440,9 @@ label start:
             ### button pics right here right here
             
             show jesus at leftish
+            with Dissolve (.5)
             show jp2 at rightish
+            with Dissolve (.5)
             "It's pictures of Jesus Christ and Pope John Paul II."
             "Which one will you choose?"
             
@@ -418,7 +456,9 @@ label start:
                                                             
                     label jesus:
                         hide jp2
+                        with Dissolve (.5)
                         show jesus at truecenter
+                        with Dissolve (.5)
                         "You've obtained a picture!"
                         "Your babcia will surely love it."
                         $ jesus = True
@@ -426,7 +466,9 @@ label start:
                             
                     label jp2:
                         hide jesus
+                        with Dissolve (.5)
                         show jp2 at truecenter
+                        with Dissolve (.5)
                         "You've obtained a picture!"
                         "Your babcia will surely love it."
                         $ jp2 = True
@@ -575,5 +617,38 @@ label start:
         else:
             "The veggies are exactly what needed. She happily grates the potatoes and dices the onion."
             "What might she be cooking?..."
-        return
+            "You watch her beat some pork into nice {i}kotlety schabowe{/i}."
+            play music 'kormorany.mp3'
+            "The radio station she turned on now plays old Polish songs."
+            "It's really enjoyable."
+            "Feels like a good day."
+            "Feels like a real summer day."
+            "Babcia hums along to the songs and does a little dance sometimes."
+            "Potatoes are in the pot now, kotlety are on the pan, frying."
+            "There's one more pot - a big one. You know well what's there."
+            "It's {i}rosół{/i}. You love it. It's truly a nostalgic dish. It's what you used to eat every Sunday at your grandparents'."
+            "Now you don't visit them just as often, only occassionally. {w}You miss those times."
+            "Seeing babcia smiling and happy fills your heart with warmth."
+            stop music fadeout 2.0
+            "Time passes. Babcia snaps you out of your memories"
+            b "Darling, can you lay out the cutlery? I'm almost done with cooking."
+            "Soon enough, forks, knives and spoons shine on the table."
+            "Long awaited, dinner is in front of you."
+            if kebab:
+                "However... You aren't much hungry anymore. Afterall, you've eaten a kebab..."
+                "You stare at your plate instead of even sipping rosół."
+                b "What's wrong, [player_name]?"
+                b "You like rosół, I know you do."
+                "You sigh and admit that you've eaten something before."
+                "You just couldn't fight the temptation of getting a kebab."
+                "Babcia looks a bit sad, maybe angry. You can't tell."
+                "She's certainly not satisfied that you picked fastfood over a Polish meal."
+                return
+                
+            else:
+                "The aroma is wonderful. Carrots? Crunchy. Kotlet? Tender and delicious."
+                "By the time you're done eating, you're sated. That's a good feeling, definitely."
+                "You also get a cup of kompot again."
+                "What a wonderful babcia you have."
+                return
                     
