@@ -635,7 +635,8 @@ label start:
             "The veggies are exactly what needed. She happily grates the potatoes and dices the onion."
             "What might she be cooking?..."
             "You watch her beat some pork into nice {i}kotlety schabowe{/i}."
-            play music 'kormorany.mp3' fadein 5.0
+            $ renpy.music.set_volume(volume=0.5, delay=0, channel='music')
+            play music 'kormorany.mp3' fadein 10.0
             "The radio station she turned on now plays old Polish songs."
             "It's really enjoyable."
             "Feels like a good day."
@@ -646,7 +647,7 @@ label start:
             "It's {i}rosół{/i}. You love it. It's truly a nostalgic dish. It's what you used to eat every Sunday at your grandparents'."
             "Now you don't visit them just as often, only occassionally. {w}You miss those times."
             "Seeing babcia smiling and happy fills your heart with warmth."
-            stop music fadeout 2.0
+            $ renpy.music.set_volume(volume=0.25, delay=0, channel='music')
             "Time passes. Babcia snaps you out of your memories"
             b "Darling, can you lay out the cutlery? I'm almost done with cooking."
             "Soon enough, forks, knives and spoons shine on the table."
