@@ -340,7 +340,7 @@ label start:
                             "His face doesn't change but you can feel he's content."
                             hide kebab
                             "Soon enough you feel full and satisfied."
-                            jump walkout2
+                            jump dresi
                         
                         label kebabno:
                             "You deny the kebab."
