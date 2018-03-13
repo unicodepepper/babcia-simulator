@@ -28,6 +28,9 @@ transform leftish:
 transform rightish:
     xalign 0.63
     yalign 0.35
+transform countdown:
+    xalign 0.50
+    yalign 0.75
 
 default hajs = False
 default targdone = False
@@ -365,11 +368,11 @@ label start:
         "You speed up significantly but they catch you anyway..."
         "They never give up."
         ds "What do you stand for?"
+        ds "Legia Warszawa or Wisła Kraków?"
         $ time = 5
         $ timer_range = 5
         $ timer_jump = 'niewiem'
-        show screen countdown
-        ds "Legia Warszawa or Wisła Kraków?"
+        show screen countdown at countdown
         menu:
             "Legia Warszawa!":
                 hide screen countdown
@@ -382,7 +385,7 @@ label start:
                     ds "You're one of us!"
                     ds "Lucky you I'm in a good mood today."
                     ds "Have this before I change my mind."
-                    show swiezak3
+                    show swiezak3 at truecenter
                     "He... {w}He hands you a świeżak."
                     "That did come unexpected."
                     "You stutter out a thank you and go away quickly."
