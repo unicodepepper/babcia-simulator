@@ -1,5 +1,4 @@
 # to do:
-    # edit pics to the right size
     # find better pics for dresi and kebaby
     # find out how to make buttons
     # find out how to make timed choice menus
@@ -254,10 +253,13 @@ label start:
         
         menu walkoutmenu:
             "Go to the targ.":
+            window hide Dissolve (.5)
                 jump targ
             "Go next to the church.":
+            window hide Dissolve (.5)
                 jump church
             "Go to Biedronka.":
+            window hide Dissolve (.5)
                 jump biedronka
                 
 ##################################################################
