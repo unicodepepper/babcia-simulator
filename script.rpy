@@ -1,3 +1,22 @@
+# to do:
+    # edit pics to the right size
+    # find better pics for dresi and kebaby
+    # find out how to make buttons
+    # find out how to make timed choice menus
+    # adjust positioning
+    # try to find out how to fix the jump issue
+    # find some chill track to play in the bg
+    # set up kanikuły
+    # animate a shitty pic of Kacper
+    # work on the good ending
+    # add bad ending
+        # kebabyes
+    # good ending can also be kebabno
+    # what should all świeżaki do? make a special cg show up?
+    
+# so... in the end we've got one true good ending? i believe
+# and also like. three bad endings lmao.
+
 define p = Character("[player_name]", color="#F39C12")
 define b = Character("Babcia Halinka", color="#2A52BE")
 define d = Character("Dziadek", color="#85C1E9")
