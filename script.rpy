@@ -356,9 +356,9 @@ label start:
                         
     label dresi:
         "Walking down the street you notice a {i}dres{/i} and a {i}karyna{/i} standing by."
-        show dres at leftish
+        show dres
         with Dissolve (.5)
-        show karyna
+        show karyna at left
         with Dissolve (.5)
         "You speed up significantly but they catch you anyway..."
         "They never give up."
