@@ -459,10 +459,9 @@ label start:
             
             ### button pics right here right here
             
-            show jesus at leftish
+            show jesus at leftish and jp2 at rightish
             with Dissolve (.5)
-            show jp2 at rightish
-            with Dissolve (.5)
+
             "It's pictures of Jesus Christ and Pope John Paul II."
             "Which one will you choose?"
             
