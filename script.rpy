@@ -3,9 +3,7 @@
     # find out how to make buttons
     # try to find out how to fix the jump issue
     # arrange the tracks and loop the necessary ones
-    # set up kanikuły
     # animate a shitty pic of Kacper
-    # what should all świeżaki do? make a special cg show up?
 
 ##################################################################
 
@@ -357,8 +355,11 @@ label start:
                 jump dresi
                         
     label dresi:
-        show dres
-        "Walking down the street you notice a couple dresi standing by."
+        "Walking down the street you notice a {i}dres{/i} and a {i}karyna{/i} standing by."
+        show dres at leftish
+        with Dissolve (.5)
+        show karyna
+        with Dissolve (.5)
         "You speed up significantly but they catch you anyway..."
         "They never give up."
         ds "What do you stand for?"
