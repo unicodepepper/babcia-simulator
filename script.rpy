@@ -384,6 +384,7 @@ label start:
                     ds "Lucky you I'm in a good mood today."
                     ds "Have this before I change my mind."
                     show swiezak3 at truecenter
+                    with Dissolve (.5)
                     "He... {w}He hands you a świeżak."
                     "That did come unexpected."
                     hide swiezak3
