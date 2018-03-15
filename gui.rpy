@@ -23,7 +23,7 @@ init python:
 ## The colors of text in the interface.
 
 
-style outline:
+style default:
     outlines [ (absolute(1), "#000", absolute(0), absolute(0)) ]
 
 ## Main menu title color.
