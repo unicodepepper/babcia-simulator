@@ -357,13 +357,12 @@ label start:
                 jump dresi
                         
     label dresi:
-        scene gangsta babcia
         show dres
         "Walking down the street you notice a couple dresi standing by."
         "You speed up significantly but they catch you anyway..."
         "They never give up."
         ds "What do you stand for?"
-        ds "Legia Warszawa or Wisła Kraków?"
+        ds "Legia Warszawa, Wisła Kraków or Arka Gdynia?"
         $ time = 5
         $ timer_range = 5
         $ timer_jump = 'niewiem'
@@ -375,6 +374,9 @@ label start:
             "Wisła Kraków!":
                 hide screen countdown
                 jump wisła
+            "Arka Gdynia!":
+                hide screen countdown
+                jump arka
                 
                 label legia:
                     $ swiezak3 = True
@@ -399,10 +401,20 @@ label start:
                     "Next time it would be useful to at least learn some sports teams..."
                 jump walkout2
                 
+                label arka:
+                    ds "{i}Really?{/i}"
+                    ds "You're dead, man."
+                    ds "You'd better run."
+                    "Maybe it does seem like a good idea to {i}run like hell before they beat you up all black and blue.{/i}"
+                    scene dom1
+                    "By the skin of your teeth you've escaped."
+                    "Next time it would be useful to at least learn some sports teams..."
+                jump walkout2
+                
                 label niewiem:
                     ds "Oh, you can't choose?"
                     ds "I'll choose for you."
-                    "You decide to run away before he beats you up."
+                    "You decide to run away before he chooses to beat you up."
                 jump walkout2
         
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
