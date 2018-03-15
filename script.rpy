@@ -52,12 +52,11 @@ screen countdown:
     timer 0.01 repeat True action If(time > 0, true=SetVariable('time', time - 0.02), false=[Hide('countdown'), Jump(timer_jump)]) 
     bar value time range timer_range xalign 0.5 yalign 0.9 xmaximum 300 at alpha_dissolve
 
-##################################################################
+####################################################################################################################################
 # never ever put numbers in var names, blease :')
-##################################################################
+####################################################################################################################################
 
 label start:
-    play music 'wieś.mp3' 
     scene room1
     with Dissolve(.5)
     
@@ -253,6 +252,7 @@ label start:
 ##################################################################
         
     label walkout:
+        play music 'wieś.mp3' 
         show dom1
         with fade
         "It's a wonderful sunny day."
@@ -264,12 +264,15 @@ label start:
         menu walkoutmenu:
             "Go to the targ.":
                 window hide Dissolve (.5)
+                stop music fadeout 1.0
                 jump targ
             "Go next to the church.":
                 window hide Dissolve (.5)
+                stop music fadeout 1.0
                 jump church
             "Go to Biedronka.":
                 window hide Dissolve (.5)
+                stop music fadeout 1.0
                 jump biedronka
                 
 ##################################################################
@@ -501,6 +504,7 @@ label start:
             play music 'kanikuly.mp3'
             "What the {i}hell{/i}?"
             "You decide to quickly retreat from this wild man."
+            stop music fadeout 1.0
             scene biedra7
             with Dissolve (.5)
             "Walking down the aisles you finally spot the veggie stall."
@@ -630,7 +634,6 @@ label start:
             "The veggies are exactly what needed. She happily grates the potatoes and dices the onion."
             "What might she be cooking?..."
             "You watch her beat some pork into nice {i}kotlety schabowe{/i}."
-            $ renpy.music.set_volume(volume=0.5, delay=0, channel='music')
             play music 'kormorany.mp3' fadein 10.0
             "The radio station she turned on now plays old Polish songs."
             "It's really enjoyable."
@@ -642,7 +645,9 @@ label start:
             "It's {i}rosół{/i}. You love it. It's truly a nostalgic dish. It's what you used to eat every Sunday at your grandparents'."
             "Now you don't visit them just as often, only occassionally. {w}You miss those times."
             "Seeing babcia smiling and happy fills your heart with warmth."
+            $ renpy.music.set_volume(volume=0.5, delay=0, channel='music')
             $ renpy.music.set_volume(volume=0.25, delay=0, channel='music')
+            $ renpy.music.set_volume(volume=0.125, delay=0, channel='music')
             "Time passes. Babcia snaps you out of your memories"
             b "Darling, can you lay out the cutlery? I'm almost done with cooking."
             "Soon enough, forks, knives and spoons shine on the table."
