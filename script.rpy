@@ -89,38 +89,22 @@ label start:
     menu:
 
         "Yes please!":
-            jump acceptkompot
+            b "There you go darling! {w}I made it just for you."
+            b "It's got strawberries right from my garden."
+            pass
 
         "No, thank you.":
-            jump refusekompot
+            b "But sweetie, you should drink healthy drinks. {w}Not just this... {w}How do you call it..."
+            "You suggest that the word she's looking for is cola."
+            b "...yes, exactly."
+            b "But as long as you're here, you'll be all healthy under my wings."
+            pass
         
         "...what is this?":
-            jump questionkompot
-            
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+            b "My little sweet bear cub, you couldn't have possibly forgotten the taste of your childhood!"
+            b "Here you go, enjoy this summer drink."
+            pass
 
-    label acceptkompot:
-        b "There you go darling! {w}I made it just for you."
-        b "It's got strawberries right from my garden."
-        jump getkompot
-
-    label refusekompot:
-        b "But sweetie, you should drink healthy drinks. {w}Not just this... {w}How do you call it..."
-        "You suggest that the word she's looking for is cola."
-        b "...yes, exactly."
-        b "But as long as you're here, you'll be all healthy under my wings."
-        jump acceptkompot
-        jump getkompot
-        
-    label questionkompot:
-        b "My little sweet bear cub, you couldn't have possibly forgotten the taste of your childhood!"
-        b "Here you go, enjoy this summer drink."
-        jump getkompot
-        
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
-    label getkompot:
-    
     hide babcia start
     show kompocik 1 at truecenter
     
@@ -132,7 +116,6 @@ label start:
     "She pinches your cheek belovingly before retreating to the kitchen."
     
     hide babcia start
-    with dissolve
     hide kompocik 1
     with dissolve
 
