@@ -136,9 +136,9 @@ label start:
             jump kitchen1
             
         "Examine the room.":
-            "You decide to get up and look around the room. {w}It strangely reminds you of communism."
             scene room2
             with fade
+            "You decide to get up and look around the room. {w}It strangely reminds you of communism."
             "What do you want to do?"
         
             menu:
