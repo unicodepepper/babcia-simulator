@@ -200,9 +200,9 @@ label start:
         "It would be shameful to make your babcia run errands herself when you know she's old like that."
         "You nod your head and take a sip of kompot."
         b "I would need you to buy a kilo of potatoes and three onions."
-        b "Irenka, my dear friend, should still be out there with her stall. {w}I think you'll find her easily. {w}If not, she will wave at you. I bet she remembers you!"
+        b "Irenka, my dear friend, should still be out there with her stall. {w}I think you'll find her easily. {w}If not, she will find you. I bet she remembers you!"
         "Babcia hands you 10 złoty and pats your hand vigorously. {w}As much as an old lady can, at least."
-        "You finish your food quickly and help her wash the dishes, like a good grandchild would."
+        "You finish your meal quickly and help her wash the dishes, like a good grandchild would."
         b "See you [player_name]! Don't forget about the groceries!"
         pass
         
