@@ -130,21 +130,19 @@ label start:
 ######## GET KOMPOT MENU #########################################
     
     menu:
-        
         "Listen to your babcia and get ready for a meal.":
             "You dress up swiftly, put on fuzzy slippers and walk over to your babcia."
             jump kitchen1
             
         "Examine the room.":
+            "You decide to get up and look around." 
             scene room2
             with fade
-            "You decide to get up and look around the room. {w}It strangely reminds you of communism."
+            "This space strangely reminds you of communism."
             "What do you want to do?"
         
             menu:
                 "Check out the thing behind the couch; there's something green peeking out from behind of it.":
-                    scene couchview
-                    with fade
                     show swiezak1 at truecenter
                     with dissolve
                     "It's a well-known Polish merchandise from Biedronka. {w}They sold a ton of them. {w}A literal ton. {w}{size=-5}Probably.{/size}"
