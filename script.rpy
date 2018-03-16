@@ -377,11 +377,11 @@ label start:
                 "Next time it would be useful to at least learn some sports teams..."
                 jump walkout2
 
-            label niewiem:
-                ds "Oh, you can't choose?"
-                ds "I'll choose for you."
-                "You decide to run away before he chooses to beat you up."
-                jump walkout2
+        label niewiem:
+            ds "Oh, you can't choose?"
+            ds "I'll choose for you."
+            "You decide to run away before he chooses to beat you up."
+            jump walkout2
         
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
         
