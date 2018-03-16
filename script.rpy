@@ -1,6 +1,5 @@
 # to do in general:
     # find better pics for dresi and kebaby
-    # try to find out how to fix the jump issue
     # arrange the tracks and loop the necessary ones
     # animate a shitty pic of Kacper
     # draw more text boxes for charas
@@ -110,10 +109,12 @@ label start:
 
     hide babcia start
     show kompocik 1 at truecenter
+    with dissolve
     
     "You take the glass and drink the fruity beverage. {w}It's fairly sweet and reminds you of the good old times when you were a kid."
     
     show babcia start at left
+    with dissolve
     
     b "Now, [player_name], get up while I prepare breakfast for you."
     "She pinches your cheek belovingly before retreating to the kitchen."
@@ -222,10 +223,16 @@ label start:
                 window hide Dissolve (.5)
                 stop music fadeout 1.0
                 jump targ
+                
+                
+                
             "Go next to the church.":
                 window hide Dissolve (.5)
                 stop music fadeout 1.0
                 jump church
+                
+                
+                
             "Go to Biedronka.":
                 window hide Dissolve (.5)
                 stop music fadeout 1.0
