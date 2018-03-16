@@ -413,6 +413,25 @@ label start:
             scene church4
             with Dissolve (.5)
             "Colorful light shining through stained glass..."
+            "...and something green, again, sitting in the nave."
+            "What's going on with these things?"
+                menu:
+                    "Check it out.":
+                        "You walk over to the seat and discover... another świeżak. Geez."
+                        show swiezak4
+                        with dissolve
+                        "Why is there so many of them?"
+                        hide swiezak4
+                        with dissolve
+                        "It's like a plague."
+                        "Green plague."
+                        "Forget that deathly plague in the medieval times."
+                        "{i}This{/i} is the real stuff."
+                        pass
+                    "Whatever. Who cares, for real.":
+                        "You walk out without paying much attention to a suspicious thing."
+                        pass
+                    
             scene church1
             with Dissolve (.5)
             "The church you remember looked way different and way more modest."
@@ -432,29 +451,24 @@ label start:
             
             menu picture:
                 "Jesus Christ.":
-                    jump jesus
-                "Pope John Paul II.":
-                    jump jp2
+                    hide jp2
+                    with Dissolve (.5)
+                    show jesus at truecenter
+                    "You've obtained a picture!"
+                    "Your babcia will surely love it."
+                    $ jesus = True
+                    jump walkout2
                     
-           ### button pics ending rrright here
-                                                            
-                    label jesus:
-                        hide jp2
-                        with Dissolve (.5)
-                        show jesus at truecenter
-                        "You've obtained a picture!"
-                        "Your babcia will surely love it."
-                        $ jesus = True
-                        jump walkout2
-                            
-                    label jp2:
-                        hide jesus
-                        with Dissolve (.5)
-                        show jp2 at truecenter
-                        "You've obtained a picture!"
-                        "Your babcia will surely love it."
-                        $ jp2 = True
-                        jump walkout2
+                "Pope John Paul II.":
+                    hide jesus
+                    with Dissolve (.5)
+                    show jp2 at truecenter
+                    "You've obtained a picture!"
+                    "Your babcia will surely love it."
+                    $ jp2 = True
+                    jump walkout2
+                    
+           ### button pics ending rrright here ???
                         
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
                         
@@ -499,26 +513,21 @@ label start:
             menu cola:
                 "Take it.":
                     $ cola = True
-                    jump colatrue
+                    "A nice cold drink won't hurt anyone, will it?"
+                    "You take a bottle and head over to the {i}kasjerka{/i}."
+                    hide cola1
+                    with Dissolve (.5)
+                    
                 "You have kompot at home, you don't need cola.":
                     hide cola1
                     with Dissolve (.5)
-                    jump colafalse
+                    "Fizzy drinks? With phosphoric acid? You listened well at chemistry classes. {w}You won't fall for this sweet, carbonated trap."
+                    "Not today, cola! Not today!"
+                    "...moving on. {w}You head to the {i}kasjerka{/i} now."
+                pass
                     
-                    label colatrue:
-                        "A nice cold drink won't hurt anyone, will it?"
-                        "You take a bottle and head over to the {i}kasjerka{/i}."
-                        hide cola1
-                        with Dissolve (.5)
-                        jump kasa
-                         
-                    label colafalse:
-                        "Fizzy drinks? With phosphoric acid? You listened well at chemistry classes. {w}You won't fall for this sweet, carbonated trap."
-                        "Not today, cola! Not today!"
-                        "...moving on. {w}You head to the {i}kasjerka{/i} now."
-                        jump kasa
-            
-            label kasa:
+                    
+                    
             scene biedra8
             "She looks pretty tired with life."
             "Moving your veggies slowly, she eventually gets it all done and prints out the receipt."
@@ -535,7 +544,7 @@ label start:
             else:
                 kasa "Thank you for shopping in Biedronka, or something."
                 "You shrug and walk out with your groceries. {w}And a bottle of unhealthy fizzy drink."
-            jump walkout2
+            pass
                 
 ##################################################################
 
