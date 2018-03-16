@@ -210,7 +210,7 @@ label start:
 ##################################################################
 
         play music 'wieś.mp3' 
-        show dom1
+        scene dom1
         with fade
         "It's a wonderful sunny day."
         "Everyone's obviously at church, besides the ones who are at the targ."
@@ -220,9 +220,138 @@ label start:
         
         menu walkoutmenu:
             "Go to the targ.":
-                window hide Dissolve (.5)
+                hide dom1
+                scene targ1
+                with fade
                 stop music fadeout 1.0
-                jump targ
+                $ targdone = True
+                "There isn't a lot of people on the targ today."
+                "Especially at this hour."
+                scene targ5
+                "You walk around looking for your babcia's friend. {w}You have no idea how are you supposed to find her, but... Yeah."
+                scene targ7
+                "Where might she be?"
+                "You decide to walk around a little bit more and compare the prices of apples."
+                scene targ2
+                "Nope, it's not her."
+                "{size=-5}Presumably.{/size}"
+                "And the apples are pretty expensive, too."
+                "Not like you need apples really."
+                scene targ3
+                "You've been walking around the endless targ for an hour now."
+                "Still no sight of {i}Pani Irenka{/i} or cheap apples."
+                "Your stomach starts grumbling silently at you."
+                scene targ4
+                "Finally, after another thirty minutes, you spot someone waving at you."
+                "It must be Pani Irenka!"
+                show irenka at leftish
+                i "There you are!"
+                i "Long time no see, kid!"
+                "She flashes a smile at you and carries out a bag of potatoes and a couple onions."
+                i "Your babcia told me you would come over and mentioned veggies so I assumed that's what she needed."
+                "Wow, these babcias really do have some special sense."
+                "You pick up the plastic bag and pay just the right amount."
+                i "Say hi to Halinka from me!"
+                scene targ1
+                "This little nasty monster in your belly really growls at you now."
+                "Which means you're pretty hungry."
+                "Oh. {w}Oh!..."
+                scene kebab1
+                "There's a kebab, always when it's needed!"
+                "Everyone loves kebaby."
+                "If you don't love them... You're not a true Pole. {w}Sorry. {w}I don't make the rules."
+                scene kebab2
+                show janusz1 at leftish
+                "The fellow Pole stares at you thoughtfully."
+                "He speaks no words but you know what is on his mind."
+                "You just know."
+                "..."
+                "He wants you to buy a kebab."
+                "And you really are hungry, so maybe it's a good idea..."
+                if hajs:
+                    menu:
+                        "You deserve a good meal, right?":
+                                $ kebab = True
+                                show kebab at truecenter
+                                "Janusz the kebab man hands you a kebab."
+                                "His face doesn't change but you can feel he's content."
+                                hide kebab
+                                "Soon enough you feel full and satisfied."
+                                pass
+                                
+                        "A tasty dinner probably awaits you at home. Don't get a kebab.":
+                                "You deny the kebab."
+                                "Janusz the kebab man starts to get angry."
+                                hide janusz1
+                                show janusz2 at leftish
+                                "He shows you teeth and you can feel his fury growing."
+                                "You decide to retreat the fastest you can before you experience the kebab wrath."
+                                pass
+
+                                
+                else:
+                    "Sadly, you find your pockets empty. {w}Just like your stomach."
+                    "That's too bad."
+                    show janusz2 at leftish
+                    "Janusz the kebab man grunts angrily. You quickly walk away. Better not have him jump to your eyes."
+                    pass
+                            
+                "Walking down the street you notice a {i}dres{/i} and a {i}karyna{/i} standing by."
+                show dres
+                with Dissolve (.5)
+                show karyna at left
+                with Dissolve (.5)
+                "You speed up significantly but they catch you anyway..."
+                "They never give up."
+                ds "What do you stand for?"
+                ds "Legia Warszawa, Wisła Kraków or Arka Gdynia?"
+                $ time = 5
+                $ timer_range = 5
+                $ timer_jump = 'niewiem'
+                show screen countdown
+                menu:
+                    "Legia Warszawa!":
+                        hide screen countdown
+                        $ swiezak3 = True
+                        ds "You're one of us!"
+                        ds "Lucky you I'm in a good mood today."
+                        ds "Have this before I change my mind."
+                        show swiezak3 at truecenter
+                        with Dissolve (.5)
+                        "He... {w}He hands you a świeżak."
+                        "That did come unexpected."
+                        hide swiezak3
+                        with Dissolve (.5)
+                        "You stutter out a thank you and go away quickly."
+                        jump walkout2
+                        
+                    "Wisła Kraków!":
+                        hide screen countdown
+                        ds "{i}Really?{/i}"
+                        ds "You're dead, man."
+                        ds "You'd better run."
+                        "Maybe it does seem like a good idea to {i}run like hell before they beat you up all black and blue.{/i}"
+                        scene dom1
+                        "By the skin of your teeth you've escaped."
+                        "Next time it would be useful to at least learn some sports teams..."
+                        jump walkout2
+                        
+                    "Arka Gdynia!":
+                        hide screen countdown
+                        ds "{i}Really?{/i}"
+                        ds "You're dead, man."
+                        ds "You'd better run."
+                        "Maybe it does seem like a good idea to {i}run like hell before they beat you up all black and blue.{/i}"
+                        scene dom1
+                        "By the skin of your teeth you've escaped."
+                        "Next time it would be useful to at least learn some sports teams..."
+                        jump walkout2
+
+                label niewiem:
+                    ds "Oh, you can't choose?"
+                    ds "I'll choose for you."
+                    "You decide to run away before he chooses to beat you up."
+                    jump walkout2
                 
                 
                 
@@ -230,150 +359,15 @@ label start:
                 window hide Dissolve (.5)
                 stop music fadeout 1.0
                 jump church
-                
-                
-                
+                        
+                        
+                        
             "Go to Biedronka.":
                 window hide Dissolve (.5)
                 stop music fadeout 1.0
                 jump biedronka
                 
 ##################################################################
-
-        label targ:
-            $ targdone = True
-            scene targ1
-            with fade
-            "There isn't a lot of people on the targ today."
-            "Especially at this hour."
-            scene targ5
-            "You walk around looking for your babcia's friend. {w}You have no idea how are you supposed to find her, but... Yeah."
-            scene targ7
-            "Where might she be?"
-            "You decide to walk around a little bit more and compare the prices of apples."
-            scene targ2
-            "Nope, it's not her."
-            "{size=-5}Presumably.{/size}"
-            "And the apples are pretty expensive, too."
-            "Not like you need apples really."
-            scene targ3
-            "You've been walking around the endless targ for an hour now."
-            "Still no sight of {i}Pani Irenka{/i} or cheap apples."
-            "Your stomach starts grumbling silently at you."
-            scene targ4
-            "Finally, after another thirty minutes, you spot someone waving at you."
-            "It must be Pani Irenka!"
-            show irenka at leftish
-            i "There you are!"
-            i "Long time no see, kid!"
-            "She flashes a smile at you and carries out a bag of potatoes and a couple onions."
-            i "Your babcia told me you would come over and mentioned veggies so I assumed that's what she needed."
-            "Wow, these babcias really do have some special sense."
-            "You pick up the plastic bag and pay just the right amount."
-            i "Say hi to Halinka from me!"
-            scene targ1
-            "This little nasty monster in your belly really growls at you now."
-            "Which means you're pretty hungry."
-            "Oh. {w}Oh!..."
-            scene kebab1
-            "There's a kebab, always when it's needed!"
-            "Everyone loves kebaby."
-            "If you don't love them... You're not a true Pole. {w}Sorry. {w}I don't make the rules."
-            scene kebab2
-            show janusz1 at leftish
-            "The fellow Pole stares at you thoughtfully."
-            "He speaks no words but you know what is on his mind."
-            "You just know."
-            "..."
-            "He wants you to buy a kebab."
-            "And you really are hungry, so maybe it's a good idea..."
-            if hajs:
-                menu:
-                    "You deserve a good meal, right?":
-                            $ kebab = True
-                            show kebab at truecenter
-                            "Janusz the kebab man hands you a kebab."
-                            "His face doesn't change but you can feel he's content."
-                            hide kebab
-                            "Soon enough you feel full and satisfied."
-                            pass
-                            
-                    "A tasty dinner probably awaits you at home. Don't get a kebab.":
-                            "You deny the kebab."
-                            "Janusz the kebab man starts to get angry."
-                            hide janusz1
-                            show janusz2 at leftish
-                            "He shows you teeth and you can feel his fury growing."
-                            "You decide to retreat the fastest you can before you experience the kebab wrath."
-                            pass
-
-                            
-            else:
-                "Sadly, you find your pockets empty. {w}Just like your stomach."
-                "That's too bad."
-                show janusz2 at leftish
-                "Janusz the kebab man grunts angrily. You quickly walk away. Better not have him jump to your eyes."
-                pass
-                        
-    label dresi:
-        "Walking down the street you notice a {i}dres{/i} and a {i}karyna{/i} standing by."
-        show dres
-        with Dissolve (.5)
-        show karyna at left
-        with Dissolve (.5)
-        "You speed up significantly but they catch you anyway..."
-        "They never give up."
-        ds "What do you stand for?"
-        ds "Legia Warszawa, Wisła Kraków or Arka Gdynia?"
-        $ time = 5
-        $ timer_range = 5
-        $ timer_jump = 'niewiem'
-        show screen countdown
-        menu:
-            "Legia Warszawa!":
-                hide screen countdown
-                $ swiezak3 = True
-                ds "You're one of us!"
-                ds "Lucky you I'm in a good mood today."
-                ds "Have this before I change my mind."
-                show swiezak3 at truecenter
-                with Dissolve (.5)
-                "He... {w}He hands you a świeżak."
-                "That did come unexpected."
-                hide swiezak3
-                with Dissolve (.5)
-                "You stutter out a thank you and go away quickly."
-                jump walkout2
-                
-            "Wisła Kraków!":
-                hide screen countdown
-                ds "{i}Really?{/i}"
-                ds "You're dead, man."
-                ds "You'd better run."
-                "Maybe it does seem like a good idea to {i}run like hell before they beat you up all black and blue.{/i}"
-                scene dom1
-                "By the skin of your teeth you've escaped."
-                "Next time it would be useful to at least learn some sports teams..."
-                jump walkout2
-                
-            "Arka Gdynia!":
-                hide screen countdown
-                ds "{i}Really?{/i}"
-                ds "You're dead, man."
-                ds "You'd better run."
-                "Maybe it does seem like a good idea to {i}run like hell before they beat you up all black and blue.{/i}"
-                scene dom1
-                "By the skin of your teeth you've escaped."
-                "Next time it would be useful to at least learn some sports teams..."
-                jump walkout2
-
-        label niewiem:
-            ds "Oh, you can't choose?"
-            ds "I'll choose for you."
-            "You decide to run away before he chooses to beat you up."
-            jump walkout2
-        
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # #
         
         label church:
             scene church1
