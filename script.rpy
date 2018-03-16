@@ -168,33 +168,25 @@ label start:
         "Bother him a tiny bit. Just a little bit.":
             if counter < 9:
                 $counter+=1
-                jump bother
+                "Nothing happened."
+                jump bothermenu
             else:
-                jump secret
+                "Oh no... He's awoken."
+                d "Huh??"
+                d "What's going on? I-"
+                "He glances all over, visibly scared, before his eyes stop on your face."
+                d "Oh. {w}Oh... {w}It's just you."
+                d "You gave me a good scare, kiddo! {w}\nDon't do this again..."
+                d "Have this and leave me alone."
+                "Dziadek reaches over to his pocket to take out 5 złoty. {w}He passes it over to you and sits comfortably in his rocking chair again."
+                "You suppose it's high time you went to see your babcia in the kitchen."
+                $ hajs = True
+                pass
                 
         "Leave the old man alone, he's surely tired.":
-            jump kitchen1
-            
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-                
-    label bother:
-        "Nothing happened."
-    jump bothermenu
-
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
-    label secret:
-        "Oh no... He's awoken."
-        d "Huh??"
-        d "What's going on? I-"
-        "He glances all over, visibly scared, before his eyes stop on your face."
-        d "Oh. {w}Oh... {w}It's just you."
-        d "You gave me a good scare, kiddo! {w}\nDon't do this again..."
-        d "Have this and leave me alone."
-        "Dziadek reaches over to his pocket to take out 5 złoty. {w}He passes it over to you and sits comfortably in his rocking chair again."
-        "You suppose it's high time you went to see your babcia in the kitchen."
-        $ hajs = True
-        pass
+            "It would be rude to wake him up."
+            "You'll get a chance to talk to him for sure, but for now you should go see your babcia."
+            pass
     
 ##################################################################
         
