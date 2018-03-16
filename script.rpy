@@ -144,8 +144,8 @@ label start:
             menu:
                 "Check out the thing behind the couch; there's something green peeking out from behind of it.":
                     show swiezak1 at truecenter
-                    with dissolve
-                    "It's a well-known Polish merchandise from Biedronka. {w}They sold a ton of them. {w}A literal ton. {w}{size=-5}Probably.{/size}"
+                    with Dissolve (.5)
+                    "It's a well-known Polish plush from Biedronka. {w}They sold a ton of them. {w}A literal ton. {w}{size=-8}Probably.{/size}"
                     "Now that you've already found it, you walk around and see..."
                     $ swiezak1 = True
                     pass
