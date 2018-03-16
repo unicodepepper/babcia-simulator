@@ -1,14 +1,17 @@
-# to do:
+# to do in general:
     # find better pics for dresi and kebaby
-    # find out how to make buttons
     # try to find out how to fix the jump issue
     # arrange the tracks and loop the necessary ones
     # animate a shitty pic of Kacper
+    # draw more text boxes for charas
+
+# to do before beta:
+    # find out how to make buttons
 
 ##################################################################
 
 define p = Character("[player_name]", color="#F39C12")
-define b = Character("Babcia Halinka", color="#2A52BE")
+define b = Character("Babcia Halinka", color="#daed71")
 define d = Character("Dziadek", color="#85C1E9")
 define i = Character("Pani Irenka", color="#ADEC6E")
 define ds = Character("Dres Seba", color="#00B732")
@@ -129,19 +132,14 @@ label start:
     menu:
         
         "Listen to your babcia and get ready for a meal.":
-            jump gokitchen1
+            "You dress up swiftly, put on fuzzy slippers and walk over to your babcia."
+            jump kitchen1
             
         "Examine the room.":
             jump theroom
 
 ##################################################################
 
-    label gokitchen1:
-        "You dress up swiftly, put on fuzzy slippers and walk over to your babcia."
-        jump kitchen1
-        
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-        
     label theroom:
         "You decide to get up and look around the room. {w}It strangely reminds you of communism."
         scene room2
@@ -152,31 +150,26 @@ label start:
         
         menu:
             "Check out the thing behind the couch; there's something green peeking out from behind of it.":
-                jump discoverswiezak
+                scene couchview
+                with fade
+                show swiezak1
+                with dissolve
+                "It's a well-known Polish merchandise from Biedronka. {w}They sold a ton of them. {w}A literal ton. {w}{size=-5}Probably.{/size}"
+                "Now that you've already found it, you walk around and see..."
+                $ swiezak1 = True
+                pass
                     
             "Walk over to your dziadek who's asleep in the rocking chair.":
-                jump discoverdziadek
-                
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-        
-    label discoverswiezak:
-        scene couchview
-        with fade
-        "It's a well-known Polish merchandise from Biedronka. {w}They sold a ton of them. {w}A literal ton. {w}{size=-5}Probably.{/size}"
-        "Now that you've already found it, you walk around and see..."
-        $ swiezak1 = True
-    jump discoverdziadek
+                pass
     
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # #    
-        
-    label discoverdziadek:
+
         scene dziadekbg
         with fade
         "Your favourite {i}dziadek{/i}!"
         "He's snoring loudly. {w}Hopefully he's sleeping well."
         "It would be a shame if {i}someone{/i} was to interrupt him."
     $counter=0
-    jump bothermenu
     
 ################# BOTHER MENU ####################################
 
@@ -210,7 +203,7 @@ label start:
         "Dziadek reaches over to his pocket to take out 5 złoty. {w}He passes it over to you and sits comfortably in his rocking chair again."
         "You suppose it's high time you went to see your babcia in the kitchen."
         $ hajs = True
-    jump kitchen1
+        pass
     
 ##################################################################
         
@@ -228,11 +221,10 @@ label start:
         "Babcia hands you 10 złoty and pats your hand vigorously. {w}As much as an old lady can, at least."
         "You finish your food quickly and help her wash the dishes, like a good grandchild would."
         b "See you [player_name]! Don't forget about the groceries!"
-        jump walkout
+        pass
         
 ##################################################################
-        
-    label walkout:
+
         play music 'wieś.mp3' 
         show dom1
         with fade
@@ -308,34 +300,30 @@ label start:
             if hajs:
                 menu:
                     "You deserve a good meal, right?":
-                        jump kebabyes
-                    "A tasty dinner probably awaits you at home. Don't get a kebab.":
-                        jump kebabno
-                    
-                        label kebabyes:
                             $ kebab = True
                             show kebab at truecenter
                             "Janusz the kebab man hands you a kebab."
                             "His face doesn't change but you can feel he's content."
                             hide kebab
                             "Soon enough you feel full and satisfied."
-                            jump dresi
-                        
-                        label kebabno:
+                            pass
+                            
+                    "A tasty dinner probably awaits you at home. Don't get a kebab.":
                             "You deny the kebab."
                             "Janusz the kebab man starts to get angry."
                             hide janusz1
                             show janusz2 at leftish
                             "He shows you teeth and you can feel his fury growing."
                             "You decide to retreat the fastest you can before you experience the kebab wrath."
-                            jump dresi
+                            pass
+
                             
             else:
                 "Sadly, you find your pockets empty. {w}Just like your stomach."
                 "That's too bad."
                 show janusz2 at leftish
                 "Janusz the kebab man grunts angrily. You quickly walk away. Better not have him jump to your eyes."
-                jump dresi
+                pass
                         
     label dresi:
         "Walking down the street you notice a {i}dres{/i} and a {i}karyna{/i} standing by."
@@ -354,52 +342,45 @@ label start:
         menu:
             "Legia Warszawa!":
                 hide screen countdown
-                jump legia
+                $ swiezak3 = True
+                ds "You're one of us!"
+                ds "Lucky you I'm in a good mood today."
+                ds "Have this before I change my mind."
+                show swiezak3 at truecenter
+                with Dissolve (.5)
+                "He... {w}He hands you a świeżak."
+                "That did come unexpected."
+                hide swiezak3
+                with Dissolve (.5)
+                "You stutter out a thank you and go away quickly."
+                jump walkout2
+                
             "Wisła Kraków!":
                 hide screen countdown
-                jump wisła
+                ds "{i}Really?{/i}"
+                ds "You're dead, man."
+                ds "You'd better run."
+                "Maybe it does seem like a good idea to {i}run like hell before they beat you up all black and blue.{/i}"
+                scene dom1
+                "By the skin of your teeth you've escaped."
+                "Next time it would be useful to at least learn some sports teams..."
+                jump walkout2
+                
             "Arka Gdynia!":
                 hide screen countdown
-                jump arka
-                
-                label legia:
-                    $ swiezak3 = True
-                    ds "You're one of us!"
-                    ds "Lucky you I'm in a good mood today."
-                    ds "Have this before I change my mind."
-                    show swiezak3 at truecenter
-                    with Dissolve (.5)
-                    "He... {w}He hands you a świeżak."
-                    "That did come unexpected."
-                    hide swiezak3
-                    with Dissolve (.5)
-                    "You stutter out a thank you and go away quickly."
+                ds "{i}Really?{/i}"
+                ds "You're dead, man."
+                ds "You'd better run."
+                "Maybe it does seem like a good idea to {i}run like hell before they beat you up all black and blue.{/i}"
+                scene dom1
+                "By the skin of your teeth you've escaped."
+                "Next time it would be useful to at least learn some sports teams..."
                 jump walkout2
-                
-                label wisła:
-                    ds "{i}Really?{/i}"
-                    ds "You're dead, man."
-                    ds "You'd better run."
-                    "Maybe it does seem like a good idea to {i}run like hell before they beat you up all black and blue.{/i}"
-                    scene dom1
-                    "By the skin of your teeth you've escaped."
-                    "Next time it would be useful to at least learn some sports teams..."
-                jump walkout2
-                
-                label arka:
-                    ds "{i}Really?{/i}"
-                    ds "You're dead, man."
-                    ds "You'd better run."
-                    "Maybe it does seem like a good idea to {i}run like hell before they beat you up all black and blue.{/i}"
-                    scene dom1
-                    "By the skin of your teeth you've escaped."
-                    "Next time it would be useful to at least learn some sports teams..."
-                jump walkout2
-                
-                label niewiem:
-                    ds "Oh, you can't choose?"
-                    ds "I'll choose for you."
-                    "You decide to run away before he chooses to beat you up."
+
+            label niewiem:
+                ds "Oh, you can't choose?"
+                ds "I'll choose for you."
+                "You decide to run away before he chooses to beat you up."
                 jump walkout2
         
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
