@@ -136,37 +136,30 @@ label start:
             jump kitchen1
             
         "Examine the room.":
-            jump theroom
-
-##################################################################
-
-    label theroom:
-        "You decide to get up and look around the room. {w}It strangely reminds you of communism."
-        scene room2
-        with fade
-        "What do you want to do?"
+            "You decide to get up and look around the room. {w}It strangely reminds you of communism."
+            scene room2
+            with fade
+            "What do you want to do?"
         
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-        
-        menu:
-            "Check out the thing behind the couch; there's something green peeking out from behind of it.":
-                scene couchview
-                with fade
-                show swiezak1
-                with dissolve
-                "It's a well-known Polish merchandise from Biedronka. {w}They sold a ton of them. {w}A literal ton. {w}{size=-5}Probably.{/size}"
-                "Now that you've already found it, you walk around and see..."
-                $ swiezak1 = True
-                pass
-                    
-            "Walk over to your dziadek who's asleep in the rocking chair.":
-                pass
+            menu:
+                "Check out the thing behind the couch; there's something green peeking out from behind of it.":
+                    scene couchview
+                    with fade
+                    show swiezak1 at truecenter
+                    with dissolve
+                    "It's a well-known Polish merchandise from Biedronka. {w}They sold a ton of them. {w}A literal ton. {w}{size=-5}Probably.{/size}"
+                    "Now that you've already found it, you walk around and see..."
+                    $ swiezak1 = True
+                    pass
+
+                "Walk over to your {i}dziadek{/i} who's asleep in the rocking chair.":
+                    pass
     
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # #    
 
         scene dziadekbg
         with fade
-        "Your favourite {i}dziadek{/i}!"
+        "Your favourite dziadek!"
         "He's snoring loudly. {w}Hopefully he's sleeping well."
         "It would be a shame if {i}someone{/i} was to interrupt him."
     $counter=0
