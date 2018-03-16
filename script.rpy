@@ -150,10 +150,10 @@ label start:
                     "It's a well-known Polish merchandise from Biedronka. {w}They sold a ton of them. {w}A literal ton. {w}{size=-5}Probably.{/size}"
                     "Now that you've already found it, you walk around and see..."
                     $ swiezak1 = True
-                    pass
+                pass
 
                 "Walk over to your {i}dziadek{/i} who's asleep in the rocking chair.":
-                    pass
+                pass
     
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # #    
 
@@ -162,7 +162,7 @@ label start:
         "Your favourite dziadek!"
         "He's snoring loudly. {w}Hopefully he's sleeping well."
         "It would be a shame if {i}someone{/i} was to interrupt him."
-    $counter=0
+        $counter=0
     
 ################# BOTHER MENU ####################################
 
