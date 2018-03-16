@@ -415,22 +415,22 @@ label start:
             "Colorful light shining through stained glass..."
             "...and something green, again, sitting in the nave."
             "What's going on with these things?"
-                menu:
-                    "Check it out.":
-                        "You walk over to the seat and discover... another świeżak. Geez."
-                        show swiezak4
-                        with dissolve
-                        "Why is there so many of them?"
-                        hide swiezak4
-                        with dissolve
-                        "It's like a plague."
-                        "Green plague."
-                        "Forget that deathly plague in the medieval times."
-                        "{i}This{/i} is the real stuff."
-                        pass
-                    "Whatever. Who cares, for real.":
-                        "You walk out without paying much attention to a suspicious thing."
-                        pass
+            menu:
+                "Check it out.":
+                    "You walk over to the seat and discover... another świeżak. Geez."
+                    show swiezak4
+                    with dissolve
+                    "Why is there so many of them?"
+                    hide swiezak4
+                    with dissolve
+                    "It's like a plague."
+                    "Green plague."
+                    "Forget that deathly plague in the medieval times."
+                    "{i}This{/i} is the real stuff."
+                    pass
+                "Whatever. Who cares, for real.":
+                    "You walk out without paying much attention to a suspicious thing."
+                    pass
                     
             scene church1
             with Dissolve (.5)
@@ -517,6 +517,7 @@ label start:
                     "You take a bottle and head over to the {i}kasjerka{/i}."
                     hide cola1
                     with Dissolve (.5)
+                    pass
                     
                 "You have kompot at home, you don't need cola.":
                     hide cola1
@@ -524,7 +525,7 @@ label start:
                     "Fizzy drinks? With phosphoric acid? You listened well at chemistry classes. {w}You won't fall for this sweet, carbonated trap."
                     "Not today, cola! Not today!"
                     "...moving on. {w}You head to the {i}kasjerka{/i} now."
-                pass
+                    pass
                     
                     
                     
