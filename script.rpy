@@ -433,19 +433,13 @@ label start:
                     "He pulls out two paper cards out of his pocket."
                     k "Right, I would like you to take this. Choose one!"
                     "It's pictures of Jesus Christ and Pope John Paul II."
-                    show screen jesus
-                    show screen jp2
+                    $chosen_picture=renpy.display_menu(screen="backpack")
                     
-                    menu picture:
-                        "Which one will you choose?"
-                        "Jesus Christ.":
-                            hide screen jp2
-                            $ jesus = True
-                            
-                        "Pope John Paul II.":
-                            hide screen jesus
-                            $ jp2 = True
-                            
+                    if chosen_picture=="jp2":
+                        $ jp2 = True
+                    else:
+                        $ jesus = True
+                    
                     label picdone:
                         "You've obtained a picture!"
                         "Your babcia will surely love it."

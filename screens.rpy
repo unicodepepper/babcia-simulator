@@ -1,18 +1,17 @@
-﻿screen countdown:
+screen countdown:
     timer 0.01 repeat True action If(time > 0, true=SetVariable('time', time - 0.02), false=[Hide('countdown'), Jump(timer_jump)]) 
     bar value time range timer_range xalign 0.5 yalign 0.9 xmaximum 300 at alpha_Dissolve
     
-screen jp2:
+screen jp2_or_jesus:
     imagebutton xalign 0.37 yalign 0.35:
         idle ("images/button jp2 idle.png")
         hover ("images/button jp2 hover.png")
-        action (Jump('picdone'))
+        action (Return("jp2"))
         
-screen jesus:
     imagebutton xalign 0.63 yalign 0.35:
         idle ("button jesus idle.png")
         hover ("button jesus hover.png")
-        action (Jump('picdone'))
+        action (Return("jesus"))
         
 screen kacpi:
     
